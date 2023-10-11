@@ -1,0 +1,32 @@
+[
+  {
+    "_id": 1,
+    "name": "Clothing",
+    "imageUrl": "/public/categories/c3.jpg"
+  },
+  {
+    "_id": 2,
+    "name": "Books",
+    "imageUrl": "/public/categories/c2.jpg"
+  },
+  {
+    "_id": 3,
+    "name": "Sports & Outdoors",
+    "imageUrl": "/public/categories/c4.jpg"
+  },
+  {
+    "_id": 4,
+    "name": "Electronics",
+    "imageUrl": "/public/categories/c5.jpg"
+  },
+  {
+    "_id": 5,
+    "name": "Home & Kitchen",
+    "imageUrl": "/public/categories/c1.jpg"
+  },
+  {
+    "_id": 6,
+    "name": "Home & Kitchen",
+    "imageUrl": "/public/categories/c6.jpg"
+  }
+]

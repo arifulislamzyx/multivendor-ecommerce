@@ -10,22 +10,16 @@ import Link from "next/link";
 import { AuthContext } from "@/Providers/AuthProviders";
 import UseCart from "@/Hooks/useCart";
 import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#1976d2",
-    },
-  },
-});
 const ProductDisplay = ({ product }) => {
   const { _id, name, img, price, rating } = product || [];
-  console.log(product);
+  // console.log(product);
+  const navigate = useRouter();
   const { user } = useContext(AuthContext);
-  const { refetch } = UseCart();
+  const [, refetch] = UseCart();
 
   const handleAddToCart = (product) => {
-    console.log(product);
     if (user && user.email) {
       const cartItem = {
         productId: _id,
@@ -35,7 +29,7 @@ const ProductDisplay = ({ product }) => {
         email: user.email,
       };
 
-      fetch("http://localhost:5000/products", {
+      fetch("http://localhost:5000/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -44,7 +38,7 @@ const ProductDisplay = ({ product }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          if (data.insetedId) {
+          if (data.insertedId) {
             refetch();
             Swal.fire({
               position: "top-end",
@@ -73,33 +67,32 @@ const ProductDisplay = ({ product }) => {
   };
   return (
     <div className="w-80 gap-2 mt-2 px-5 rounded-xl">
-      <ThemeProvider theme={theme}>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="140"
-            image={img}
-          />
-          <CardContent>
-            <Link href={`/all-products/${_id}`}>
-              <Typography gutterBottom variant="h5" component="div">
-                {name}
-              </Typography>
-            </Link>
-            <Rating></Rating>
-          </CardContent>
-          <p className="ml-4">$ {price}</p>
-          <CardActions>
-            <Button
-              variant="contained"
-              onClick={() => handleAddToCart(product)}
-            >
-              Add To Cart
-            </Button>
-          </CardActions>
-        </Card>
-      </ThemeProvider>
+      <Card sx={{ maxWidth: 345 }}>
+        <CardMedia
+          component="img"
+          alt="green iguana"
+          height="140"
+          image={img}
+        />
+        <CardContent>
+          <Link href={`/all-products/${_id}`}>
+            <Typography gutterBottom variant="h5" component="div">
+              {name}
+            </Typography>
+          </Link>
+          <Rating></Rating>
+        </CardContent>
+        <p className="ml-4">${price}</p>
+        <CardActions>
+          <Button
+            onClick={() => handleAddToCart(product)}
+            variant="contained"
+            className="bg-blue-600"
+          >
+            Add To Cart
+          </Button>
+        </CardActions>
+      </Card>
     </div>
   );
 };

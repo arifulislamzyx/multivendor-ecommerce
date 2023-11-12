@@ -9,6 +9,7 @@ import {
   signOut,
 } from "firebase/auth";
 import axios from "axios";
+import { setCookie } from "cookies-next";
 
 export const AuthContext = createContext([]);
 const auth = getAuth(app);
@@ -22,14 +23,16 @@ export const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const signIn = (email, password) => {
+  const signIn = async (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
+    const response = await signInWithEmailAndPassword(auth, email, password);
+    setCookie("token", response.user.accessToken);
+    return response;
   };
 
   const logOut = () => {
     setLoading(false);
-    return signOut();
+    return signOut(auth);
   };
 
   useEffect(() => {
@@ -49,10 +52,10 @@ export const AuthProvider = ({ children }) => {
       } else {
         localStorage.removeItem("access-token");
       }
-      return () => {
-        return unsubscribe;
-      };
     });
+    return () => {
+      return unsubscribe;
+    };
   }, []);
   const authInfo = { createUser, signIn, user, loading, logOut };
   return (

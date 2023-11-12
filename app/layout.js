@@ -12,12 +12,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <AuthProvider>
-      <ReactQueryProvider>
-        <html lang="en">
-          <body className={inter.className}>{children}</body>
-        </html>
-      </ReactQueryProvider>
-    </AuthProvider>
+    <html lang="en">
+      <body className={inter.className}>
+        <ReactQueryProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </ReactQueryProvider>
+      </body>
+    </html>
   );
 }

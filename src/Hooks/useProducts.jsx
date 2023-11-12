@@ -9,10 +9,11 @@ const useProducts = () => {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setProducts(data);
         setLoading(false);
-      });
+      })
+      .catch((error) => console.log("Product Fatching Faild for", error));
   }, []);
   return { products, loading };
 };

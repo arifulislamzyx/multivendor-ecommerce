@@ -16,7 +16,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useContext } from "react";
 import { AuthContext } from "@/Providers/AuthProviders";
 import Swal from "sweetalert2";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import { getCookie } from "cookies-next";
 
 const metadata = {
   title: "Login- Mitnog",
@@ -67,7 +68,8 @@ export default function SignIn() {
 
     await signIn(email, password)
       .then((result) => {
-        const loggedInUser = result.user;
+        console.log(result);
+        const loggedInUser = result.email;
         console.log(loggedInUser);
         Swal.fire({
           position: "top-end",
@@ -76,13 +78,14 @@ export default function SignIn() {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate.push(from);
+        getCookie("token");
+        navigate.push("/");
       })
       .catch((error) => {
         console.log(error);
         Swal.fire({
           position: "top-end",
-          icon: "success",
+          icon: "warning",
           title: "Entered a Wrong Password",
           showConfirmButton: false,
           timer: 1500,
@@ -139,6 +142,7 @@ export default function SignIn() {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            className="bg-blue-800"
           >
             Sign In
           </Button>

@@ -1,3 +1,4 @@
+"use client";
 import styles from "./OfferSlider.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 

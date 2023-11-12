@@ -1,10 +1,11 @@
+"use client";
 import Link from "next/link";
-import Slider from "../../Components/HomeComponants/Slider";
+import Slider from "@/Components/HomeComponants/Slider";
 
 const Header = () => {
   return (
-    <div className="w-full flex flex-auto px-8 gap-4 ">
-      <div className="w-1/4 items-center bg-slate-200 py-4 px-4 rounded">
+    <div className="w-full flex flex-auto px-8 gap-4">
+      <div className="w-1/4 items-center bg-slate-200 p-4 rounded">
         <h2 className="5xl font-bold">Category</h2>
         <ul>
           <Link href="/gadgets">

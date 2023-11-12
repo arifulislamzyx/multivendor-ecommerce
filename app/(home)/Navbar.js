@@ -7,14 +7,20 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import Link from "next/link";
 import UseCart from "@/Hooks/useCart";
+import { deleteCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  const { cart } = UseCart();
+  const [cart, refetch] = UseCart();
+  const navigate = useRouter();
 
   const handleLogout = () => {
     logOut()
-      .then(() => {})
+      .then(() => {
+        deleteCookie("token");
+        navigate.push("/");
+      })
       .error((error) => console.log(error));
   };
 
@@ -109,10 +115,12 @@ const Navbar = () => {
           {user ? (
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <AddShoppingCartIcon className="text-white gap-2"></AddShoppingCartIcon>
-              <div className="badge badge-secondary">+{cart?.length || 0}</div>
+              <div className="badge badge-secondary text-white mr-4">
+                +{cart?.length || 0}
+              </div>
               <button
                 type="button"
-                className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                className="relative rounded-full bg-gray-800 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
               >
                 <span className="absolute -inset-1.5"></span>
                 <span className="sr-only">View notifications</span>
@@ -171,7 +179,8 @@ const Navbar = () => {
                   >
                     Settings
                   </a>
-                  <a
+
+                  <Link
                     href="/"
                     onClick={handleLogout}
                     className="block px-4 py-2 text-sm text-gray-700"
@@ -180,7 +189,7 @@ const Navbar = () => {
                     id="user-menu-item-2"
                   >
                     Sign out
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

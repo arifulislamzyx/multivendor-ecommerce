@@ -3,8 +3,9 @@ import { Inter } from "next/font/google";
 import MyLayout from "@/layout";
 import { ReactQueryProvider } from "./ReactQueryProvider";
 import { AuthProvider } from "@/Providers/AuthProviders";
-import Navbar from "./(home)/Navbar";
+// import Navbar from "./(home)/Navbar";
 import Footer from "@/layout/Footer";
+import NavbaRX from "../app/(home)/NavbaRX"
 
 
 
@@ -23,7 +24,8 @@ export default function RootLayout({ children }) {
         {/* <MyLayout> */}
         <ReactQueryProvider>
        <AuthProvider>
-          <Navbar />
+          {/* <Navbar /> */}
+          <NavbaRX/>
           {children}
           <Footer />
       </AuthProvider>

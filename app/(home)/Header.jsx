@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import Slider from "@/Components/HomeComponants/Slider";
 
 const Header = () => {

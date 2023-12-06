@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <Container className="mt-20 bg-slate-300 padding-20 pb-8 rounded-xl mb-5">
+    <Container className=" bg-slate-300 p-5 rounded-xl sm:text-center">
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={3}>
           {/* Your logo or image component */}

@@ -1,15 +1,14 @@
 import React from "react";
 import { Container, Grid, Link, TableFooter, Typography } from "@mui/material";
 import Image from "next/image";
+import mitnog from "../../public/mitnog.png" 
 
 const Footer = () => {
   return (
     <Container className=" bg-slate-300 p-5 rounded-xl sm:text-center">
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={3}>
-          {/* Your logo or image component */}
-          {/* <img src="your-logo.png" alt="Company Logo" /> */}
-          <Typography>Mitnog Logo</Typography>
+          <Image className="items-center" src={mitnog} width={90} height={8}></Image>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <Typography variant="h5">Mitnog</Typography>

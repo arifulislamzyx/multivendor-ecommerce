@@ -2,6 +2,7 @@ import useProducts from "@/Hooks/useProducts";
 import ProductDisplay from "./ProductDisplay";
 import Button from "@mui/material/Button";
 import { useState } from "react";
+import Link from "next/link";
 
 const Products = () => {
   const { products } = useProducts();
@@ -14,9 +15,8 @@ const Products = () => {
 
   return (
     <div className="bg-white">
-      <p className="text-2xl pt-5 ml-32 md:ml-2 sm:ml-2">Explore Now</p>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 px-4 w-full max-w-[1050px] mx-auto relative">
-      {/* grid grid-cols-4 gap-3 px-4 w-[1050px] m-auto relative md:grid-cols-3 md:w-[750px] md:mb-5 sm:w-[445px] sm:grid-cols-2 */}
+      <p className="text-2xl pt-5 ml-32 lg:ml-35 md:ml-32 sm:ml-2">Explore Now</p>
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 px-4 w-full max-w-[1050px] mx-auto ">
         {products
           .slice(0, showAll ? products.length : 12)
           .map((product, index) => (
@@ -33,7 +33,7 @@ const Products = () => {
           variant="contained"
           className="bg-blue-600 ml-[36rem] sm:ml-20 sm:mt-2 md:ml-2 md:mb-8"
         >
-          {showAll ? "Show Less" : "Show More.."}
+          {showAll ? "Show Less" : <> <Link href="/allproducts">Show More..</Link></>}
         </Button>
       )}
     </div>

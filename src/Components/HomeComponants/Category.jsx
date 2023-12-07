@@ -20,7 +20,7 @@ export const Category =()=>{
      
     return(
         <div className="bg-white">
-            <p className="text-2xl pt-5 ml-32">Popular Categories</p>
+            <p className="text-2xl pt-5 lg:ml-35 md:ml-32 sm:ml-2">Popular Categories</p>
             <div className="grid grid-cols-3 gap-4 w-3/4 m-auto bg-white rounded-xl">
             {
                 categoriesData.map(category =>(

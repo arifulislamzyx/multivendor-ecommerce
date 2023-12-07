@@ -222,12 +222,30 @@ function ResponsiveAppBar() {
           </Box> 
            </>) : (
             <>
-            <input className='w-3/6 p-2 rounded-xl items-center text-black hidden sm:block sm:w-3/6 sm:p-2 sm:ml-4 sm:items-center' type="search" name="search" id="" placeholder='Search Items'/>
-                <Box className="flex justify-end ml-80 gap-3 sm:ml-2 sm:gap-3">
-                    <Link href="/login"><Typography>Login</Typography></Link> ||
-                    <Link href="/signup"><Typography>Sign Up</Typography></Link>
-                </Box>
-            </>
+            <Box sx={{ flexGrow: 1, display:"flex", justifyContent: 'center' }}>
+            <input
+              className={`w-full md:w-3/6 mr-20 p-2 rounded-xl text-black sm:p-2 sm:items-center`}
+              type="search"
+              name="search"
+              id=""
+              placeholder='Search Items'
+            />
+          </Box>
+          <Box sx={{ flexGrow: 0, display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+          
+          <Box className="flex gap-3 sm:ml-3 sm:gap-2">
+            <Link href="/login"><Typography>Login</Typography></Link> ||
+            <Link href="/signup"><Typography>Sign Up</Typography></Link>
+          </Box>
+        </Box>
+        </>
+            // <>
+            // <input className='w-3/6 p-2 rounded-xl items-center text-black hidden sm:block sm:w-3/6 sm:p-2 sm:ml-4 sm:items-center' type="search" name="search" id="" placeholder='Search Items'/>
+            //     <Box className="flex gap-3 sm:ml-2 sm:gap-3">
+            //         <Link href="/login"><Typography>Login</Typography></Link> ||
+            //         <Link href="/signup"><Typography>Sign Up</Typography></Link>
+            //     </Box>
+            // </>
           )}
         </Toolbar>
       </Container>

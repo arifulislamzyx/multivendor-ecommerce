@@ -1,8 +1,8 @@
-import img1 from "../../public/assets/first-slider.jpg";
-import img2 from "../../public/assets/04.jpg";
-import img3 from "../../public/assets/05.png";
-import img4 from "../../public/assets/06.png";
-import img5 from "../../public/assets/07.jpg";
+import img1 from "../../public/assets/bannerImage1.jpeg";
+import img2 from "../../public/assets/bannerImage2.jpeg";
+import img3 from "../../public/assets/bannerImage3.jpeg";
+import img4 from "../../public/assets/bannerImage4.jpeg";
+import img5 from "../../public/assets/bannerImage5.png";
 
 const mainSlider = [
   {

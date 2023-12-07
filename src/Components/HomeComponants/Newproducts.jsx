@@ -100,7 +100,7 @@ export const NewProducts =()=>{
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
+          dots: false
         }
       },
       {
@@ -126,7 +126,7 @@ export const NewProducts =()=>{
 
   return (
    <div className="bg-white">
-    <p className="text-2xl ml-32 pt-5 md:ml-4 sm:ml-2">New Products</p>
+    <p className="text-2xl lg:ml-35 md:ml-32 pt-5  sm:ml-2">Flash Sale</p>
     <div className="bg-white rounded w-full max-w-[1050px] mx-auto relative 
     md:w-[750px] sm:m-auto ">
     <Slider {...settings}>
@@ -195,41 +195,3 @@ export const NewProducts =()=>{
    </div>
   );
 }
-
-    
-// export default NewProducts;
-
-// <div key={product._id} className="w-[450px] p-5 bg-white rounded-xl ">
-      //   <div onMouseEnter={toggleHover} 
-      //   onMouseLeave={toggleHover} className="relative">
-      //      <img src={product.img} alt="product_image" className="rounded transition duration-700 ease-in-out transform hover:scale-105" />
-      //      {hovered && (
-      //     <Box
-      //       style={{
-      //         position: 'absolute',
-      //         top: '50%',
-      //         left: '85%',
-      //         transform: 'translate(-50%, -50%)',
-                            
-      //       }}
-      //     >
-      //       <Button className="bg-white text-black border-red-100 m-1 ">
-      //         <FavoriteBorderIcon/>
-      //       </Button>
-      //       <Button className="bg-white text-black m-1 " >
-      //         <CompressIcon/>
-      //       </Button>
-      //       <Button className="bg-white text-black m-1">
-      //         <ShareIcon/>
-      //       </Button>
-      //     </Box>
-      //   )}
-      //   </div>
-      //   <div>
-      //     <p>$ {product.price}</p>
-      //     <p>{truncateText(product.name, textMaxLength)}</p>
-      //     <p className="items-center"><Rating></Rating>{product.ratings}</p>
-      //     <button className="bg-blue-600 p-2 rounded text-white">Add to Cart</button>
-      //   </div>
-      // </div>
- 

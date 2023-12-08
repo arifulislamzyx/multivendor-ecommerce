@@ -1,3 +1,4 @@
+
 "use client";
 import Header from "./Header";
 import Products from "../all-products/Products";
@@ -16,6 +17,7 @@ export default function Home() {
       <HotDeals></HotDeals>
       <Products></Products>
       {/* <Partner></Partner> */}
+
     </div>
   );
 }

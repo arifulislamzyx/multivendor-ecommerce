@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
+
     "@mui/icons-material": "^5.14.11",
     "@mui/material": "^5.14.11",
     "@mui/styled-engine-sc": "^5.14.11",
@@ -23,12 +24,14 @@
     "cookies-next": "^4.0.0",
     "firebase": "^10.4.0",
     "material-ui-search-bar": "^1.0.1",
+
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-query": "^3.39.3",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
+
     "styled-components": "^6.0.8",
     "sweetalert2": "^11.7.31",
     "swiper": "^10.3.1"
@@ -40,4 +43,5 @@
     "postcss": "latest",
     "tailwindcss": "latest"
   }
+
 }

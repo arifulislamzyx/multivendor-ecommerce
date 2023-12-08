@@ -1,9 +1,5 @@
 "use client";
 
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import Image from "next/image";
 import mainSlider from "@/data/mainslider";
@@ -25,48 +21,27 @@ const Slider = () => {
 
   };
   return (
-    <div>
-      <div>
-      <div
-        
-        className="max-w-[1030px] rounded w-full mx-auto relative "
-      >
+   <>
+   
+      <div className="max-w-[1030px] rounded w-full mx-auto relative ">
         <SlideR {...settings}>
 
         {mainSlider.map((sliderImg) => (
           <div key={sliderImg.id}>
+
             <Image
               src={sliderImg.bg}
               alt="slider image"
               width={1920}
               height={835}
             ></Image>
+
           </div>
         ))}
         </SlideR>
-
-      </div>
-    </div>
-
-    {/* <div>
-<Swiper
-  navigation={false}
-  modules={[Autoplay]}
-  className="hidden rounded w-full mx-auto relative"
->
-  {mainSlider.map((sliderImg) => (
-    <SwiperSlide key={sliderImg.id}>
-      <Image
-        src={sliderImg.bg}
-        alt="slider image"
-        width={1920}
-        height={835}
-      ></Image>
-    </SwiperSlide>
-  ))}
-</Swiper>
-</div>  */}
-    </div>
-  );
-};
+     </div>
+   
+   </>
+  )
+  };
 export default Slider;

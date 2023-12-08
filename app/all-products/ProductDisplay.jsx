@@ -1,5 +1,6 @@
 "use client"
 import React, { useContext, useState } from "react";
+
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -7,14 +8,17 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box, Rating, } from "@mui/material";
+
 import Link from "next/link";
 import { AuthContext } from "@/Providers/AuthProviders";
 import UseCart from "@/Hooks/useCart";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
+
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CompressIcon from '@mui/icons-material/Compress';
 import ShareIcon from '@mui/icons-material/Share';
+
 
 
 const ProductDisplay = ({ product }) => {
@@ -37,6 +41,7 @@ const truncateText =(text, maxLength)=>{
   const toggleHover = () => {
     setHovered(!hovered);
   };
+
 
   const handleAddToCart = (product) => {
     if (user && user.email) {
@@ -141,6 +146,7 @@ const truncateText =(text, maxLength)=>{
           </CardActions>
     </Card>
   </Box>
+
   );
 };
 

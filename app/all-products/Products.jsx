@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import { useState } from "react";
 import Link from "next/link";
 
+
 const Products = () => {
   const { products } = useProducts();
   // console.log(products.length);
@@ -17,6 +18,7 @@ const Products = () => {
     <div className="bg-white">
       <p className="text-2xl pt-5 ml-32 lg:ml-35 md:ml-32 sm:ml-2">Explore Now</p>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 px-4 w-full max-w-[1050px] mx-auto ">
+
         {products
           .slice(0, showAll ? products.length : 12)
           .map((product, index) => (
@@ -25,15 +27,16 @@ const Products = () => {
               product={product}
             ></ProductDisplay>
           ))}
-         
       </div>
       {products.length > 12 && (
         <Button
           onClick={() => setShowAll(!showAll)}
           variant="contained"
+
           className="bg-blue-600 ml-[36rem] sm:ml-20 sm:mt-2 md:ml-2 md:mb-8"
         >
           {showAll ? "Show Less" : <> <Link href="/allproducts">Show More..</Link></>}
+
         </Button>
       )}
     </div>

@@ -16,7 +16,7 @@ const AddProducts =()=>{
         console.log(name,category,price,stock, imageFile);
 
 
-        fetch("http://localhost:5000/products")
+        fetch("https://mitnog-server-dgugxhu66-ariful-islams-projects.vercel.app/products")
     }
 
     return(

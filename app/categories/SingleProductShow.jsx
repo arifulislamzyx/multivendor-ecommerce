@@ -39,7 +39,7 @@ const SingleProductShow = ({ product }) => {
         email: user.email,
       };
 
-      fetch("http://localhost:5000/carts", {
+      fetch("https://mitnog-server-dgugxhu66-ariful-islams-projects.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

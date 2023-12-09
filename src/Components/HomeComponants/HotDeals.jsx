@@ -23,7 +23,7 @@ const HotDeals = () => {
             className='transition duration-700 ease-in-out transform hover:scale-105 hover:blur-sm'
                 >
                     <Image 
-                    src={image}></Image>
+                    src={image} alt='hotDealsImg'></Image>
                 </div>
             ))}
         </div>

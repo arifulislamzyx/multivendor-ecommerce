@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", {
+          .post("https://mitnog-server-dgugxhu66-ariful-islams-projects.vercel.app/jwt", {
             email: currentUser.email,
           })
           .then((data) => {

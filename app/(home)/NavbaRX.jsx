@@ -117,7 +117,7 @@ function ResponsiveAppBar() {
              display: { xs: 'none', md: 'flex' },
 
           }}>
-          <Image  src={mitnog} width="90" height="6">
+          <Image  src={mitnog} width="90" height="6" alt='profile'>
 
          </Image>
           </CardMedia>
@@ -170,7 +170,7 @@ function ResponsiveAppBar() {
             flexGrow: 1,
             display: { xs: 'flex', md: 'none' },
           }}>
-          <Image  src={mitnog} width="80" height="5">
+          <Image  src={mitnog} width="80" height="5" alt='profile'>
 
          </Image>
           </CardMedia>

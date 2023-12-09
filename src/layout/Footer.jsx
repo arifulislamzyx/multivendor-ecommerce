@@ -8,7 +8,7 @@ const Footer = () => {
     <Container className=" bg-slate-300 p-5 rounded-xl sm:text-center">
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={3}>
-          <Image className="items-center" src={mitnog} width={90} height={8}></Image>
+          <Image className="items-center" src={mitnog} width={90} height={8} alt="footerProfile"></Image>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <Typography variant="h5">Mitnog</Typography>

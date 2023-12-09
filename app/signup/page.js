@@ -79,7 +79,7 @@ export default function SignUp() {
           email: createdUser.email,
         };
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://mitnog-server-dgugxhu66-ariful-islams-projects.vercel.app/users", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(saveUserToMongoDb),

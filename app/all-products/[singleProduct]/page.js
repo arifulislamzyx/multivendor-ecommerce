@@ -13,7 +13,7 @@ const SingleProducts = ({params}) => {
   
   useEffect(()=>{
 
-  fetch(`http://localhost:5000/products/${singleProduct}`)
+  fetch(`https://mitnog-server-dgugxhu66-ariful-islams-projects.vercel.app/products/${singleProduct}`)
   .then((res)=>res.json())
   .then((data) => {
     setProducts(data);
@@ -28,12 +28,12 @@ const SingleProducts = ({params}) => {
     setProducts("faild")
     console.log("faild to product id fatching=>",err)
   })
-  },[])
+  },[singleProduct])
 
 
   const fetchRelatedProduct =(category)=>{
 
-    fetch(`http://localhost:5000/products?category=${category}&limit=5`)
+    fetch(`https://mitnog-server-dgugxhu66-ariful-islams-projects.vercel.app/products?category=${category}&limit=5`)
     .then(res=>res.json())
     .then(data=> setRelatedProducts(data))
     .catch(err=> {
@@ -51,7 +51,7 @@ const SingleProducts = ({params}) => {
         email: user.email,
       };
 
-        fetch("http://localhost:5000/carts", {
+        fetch("https://mitnog-server-dgugxhu66-ariful-islams-projects.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

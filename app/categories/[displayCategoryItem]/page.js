@@ -7,15 +7,14 @@ const DisplayCategoryBaseItem = () => {
   const { products } = useProducts() || [];
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  useEffect(() => {
-    const FashionFiltered = products.filter(product => product.category === "Men's Sneaker");
-    // const filtered = products.filter(product => product.category === "Men's Sneaker");
+   useEffect(() => {
+    const FashionFiltered = products.filter(product => product.category === "Mens Sneaker");
     setFilteredProducts(FashionFiltered);
-  }, [products]);
+   }, [products]);
 
   return (
     <div>
-      <h1>Men's Sneaker Products</h1>
+      <h1>Mens Sneaker Products</h1>
       <div className="grid grid-cols-4 gap-2 p-4">
         {filteredProducts.map(product => (
           <SingleProductShow key={product._id} product={product}></SingleProductShow>

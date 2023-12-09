@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image";
 import React from "react";
 import { useEffect, useState } from "react"
 
@@ -10,7 +11,7 @@ const Categories =()=>{
 
 
     useEffect(()=>{
-        fetch("http://localhost:5000/categories")
+        fetch("https://mitnog-server-dgugxhu66-ariful-islams-projects.vercel.app/categories")
         .then(res=> res.json())
         .then(data=> setCategoriesData(data))
         .catch(err=>{
@@ -27,7 +28,7 @@ const Categories =()=>{
                 categoriesData.map(category =>(
                     <div key={category._id} className="p-5 rounded-xl items-center" >
                         
-                        <img src={category.imageUrl} alt="" className="rounded" />
+                        <Image src={category.imageUrl} alt="" className="rounded" />
                         <p className="mt-5">{category.name}</p>
                         
                     </div>

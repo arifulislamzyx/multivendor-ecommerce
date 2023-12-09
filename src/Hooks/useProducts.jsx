@@ -6,7 +6,7 @@ const useProducts = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://mitnog-server-dgugxhu66-ariful-islams-projects.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

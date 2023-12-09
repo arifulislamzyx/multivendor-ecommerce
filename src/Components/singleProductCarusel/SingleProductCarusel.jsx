@@ -50,7 +50,7 @@ const truncateText =(text, maxLength)=>{
         email: user.email,
       };
   
-      fetch("https://mitnog-server-dgugxhu66-ariful-islams-projects.vercel.app/carts", {
+      fetch("https://mitnog-server.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

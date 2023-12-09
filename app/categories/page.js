@@ -11,7 +11,7 @@ const Categories =()=>{
 
 
     useEffect(()=>{
-        fetch("https://mitnog-server-dgugxhu66-ariful-islams-projects.vercel.app/categories")
+        fetch("https://mitnog-server.vercel.app/categories")
         .then(res=> res.json())
         .then(data=> setCategoriesData(data))
         .catch(err=>{

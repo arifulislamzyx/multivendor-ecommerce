@@ -1,6 +1,6 @@
 // const createJWTCookie = async (payload) => {
 //   try {
-//     const res = await fetch("https://mitnog-server-dgugxhu66-ariful-islams-projects.vercel.app/jwtCookie", {
+//     const res = await fetch("https://mitnog-server.vercel.app/jwtCookie", {
 //       method: "POST",
 //       headers: {
 //         "content-type": "application/json",

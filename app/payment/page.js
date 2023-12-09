@@ -11,7 +11,7 @@ const page = () => {
   return (
     <div>
       <Elements stripe={stripePromise}>
-        <Checkout></Checkout>
+        <h1>this is payment pagae</h1>
       </Elements>
     </div>
   );

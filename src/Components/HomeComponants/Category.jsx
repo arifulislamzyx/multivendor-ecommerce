@@ -27,7 +27,7 @@ export const Category =()=>{
                 categoriesData.map(category =>(
                     <div key={category._id} className="p-5 rounded-xl items-center">
                         
-                        <Image src={category.imageUrl} alt="" className="rounded" />
+                        <Image width={200} height={200} src={category.imageUrl} alt="" className="rounded" />
                         <p className="mt-5">{category.name}</p>
                         
                     </div>

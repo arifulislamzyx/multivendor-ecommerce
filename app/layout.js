@@ -6,7 +6,7 @@ import { ReactQueryProvider } from "./ReactQueryProvider";
 import { AuthProvider } from "@/Providers/AuthProviders";
 // import Navbar from "./(home)/Navbar";
 import Footer from "@/layout/Footer";
-import NavbaRX from "../app/(home)/NavbaRX"
+import NavbarMaked from "../app/(home)/NavbarMaked"
 
 
 
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <ReactQueryProvider>
        <AuthProvider>
           {/* <Navbar /> */}
-          <NavbaRX/>
+          <NavbarMaked/>
           {children}
           <Footer />
       </AuthProvider>

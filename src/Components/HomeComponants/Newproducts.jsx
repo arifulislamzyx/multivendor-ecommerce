@@ -10,7 +10,7 @@ import CompressIcon from '@mui/icons-material/Compress';
 import ShareIcon from '@mui/icons-material/Share';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Rating, Typography } from "@mui/material";
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Rating, Skeleton, Typography } from "@mui/material";
 import Link from "next/link";
 
 const textMaxLength = 10;
@@ -29,7 +29,7 @@ export const NewProducts =()=>{
   const { user } = useContext(AuthContext);
   console.log(user);
   const [, refetch] = UseCart();
-  const {products} = useProducts()
+  const {products,loading} = useProducts()
   const [hovered, setHovered] = useState(false)
   
   const toggleHover =()=>{
@@ -127,12 +127,24 @@ export const NewProducts =()=>{
   return (
    <div className="bg-white">
     <p className="text-2xl lg:ml-35 md:ml-32 pt-5  sm:ml-2">Flash Sale</p>
-    <div className="bg-white rounded w-full max-w-[1050px] mx-auto relative 
-    md:w-[750px] sm:m-auto ">
+    {
+      loading ? (
+        <>
+        <div className="bg-white grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 rounded w-full max-w-[1050px] mx-auto relative 
+        md:w-[750px] sm:m-auto">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <Skeleton key={index} variant="rectangular" width={200} height={300} />
+          ))}
+        </div>
+        </>
+      ) : (
+        <>
+        <div className="bg-white rounded w-full max-w-[1050px] mx-auto relative 
+    md:w-[750px] sm:m-auto">
     <Slider {...settings}>
     {
       products.map(product =>(
-        <Box component="div" key={product._id} className="max-w-[450px] p-5 bg-white rounded-xl ">
+        <Box component="div" key={product._id} className="max-w-[450px] p-5 bg-white rounded-xl sm:h-28">
         <Card sx={{ maxWidth: 345 }}>
           <Box
             onMouseEnter={toggleHover}
@@ -192,6 +204,10 @@ export const NewProducts =()=>{
     }
 </Slider>
    </div>
+        </>
+      )
+    }
+    
    </div>
   );
 }

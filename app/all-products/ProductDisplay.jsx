@@ -7,7 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Box, Rating, } from "@mui/material";
+import { Box, Rating, Skeleton, } from "@mui/material";
 
 import Link from "next/link";
 import { AuthContext } from "@/Providers/AuthProviders";
@@ -90,6 +90,7 @@ const truncateText =(text, maxLength)=>{
     }
   };
   return (
+   
     <Box className="w-70 gap-5 mt-5 rounded shadow-xl">
     <Card sx={{ maxWidth: 345 }}>
       <Box
@@ -146,6 +147,7 @@ const truncateText =(text, maxLength)=>{
           </CardActions>
     </Card>
   </Box>
+ 
 
   );
 };

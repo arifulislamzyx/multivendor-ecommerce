@@ -1,5 +1,5 @@
 "use client";
-import { Button, CardActions } from "@mui/material";
+import { Button, CardActions, Rating } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import SingleProductCarusel from "@/Components/singleProductCarusel/SingleProductCarusel"
@@ -92,8 +92,8 @@ const SingleProducts = ({params}) => {
 
   return products === "fatching" ? "Loading..." : products === "faild" ? "Unable to load data" :(
     
-    <div>
-    <div className="flex gap-5 items-center sm:flex-wrap">
+    <div className="p-10">
+    <div className="flex gap-5 sm:flex-wrap">
     <div className="p-10 rounded-xl bg-white shadow-xl ">
     <Image
         width={500}
@@ -103,23 +103,27 @@ const SingleProducts = ({params}) => {
       ></Image>
       </div>
       
-      <div className="my-5 sm:p-3 sm:text-center">
-        <h2 className="text-2xl mb-10">{products.name}</h2>
-        <h3 className="text-xl">Item: {products.category}</h3>
-        <p>Seller: {products.seller}</p>
-        <p>Brand: {products.brand}</p>
-        <h2 className="text-xl">Price: $ {products.price}</h2>
-        <p>
-          Ratings: {products.ratingsCount}
-          {products.rating}
+      <div className="w-1/2">
+        <h2 className="text-2xl mt-5">{products.name}</h2>
+        <h3 className="text-sm mt-10">Item: {products.category}</h3>
+        <p><span className="text-orange-500">Brand:</span> {products.seller}</p>
+        <p >
+          Ratings:<Rating></Rating>({products.ratingsCount})
         </p>
         <p>Stock: {products.stock}</p>
+        <h2 className="text-lg mt-8">Price: ${products.price}</h2>
+
+        <p className="mt-5">Description: </p>
+        <p className="mt-2 text">
+        Introducing our {products.name}, crafted from premium [Fabric Type] for a soft and luxurious feel. The [Design Element], whether elegant embroidery or chic prints, adds sophistication to this piece. Its flattering [Fit Description] ensures a comfortable yet stylish wear, perfect for [Occasion or Use]. Elevate your wardrobe with this versatile fashion staple
+        </p>
+       
         <div className="flex gap-4 mt-10 sm:justify-center">
         <CardActions className="flex justify-center">
             <Link href="payment">
             <Button
               variant="outlined"
-              className="items-center rounded-2xl hover:bg-red-600 hover:text-white "
+              className="items-center rounded-2xl hover:bg-blue-700 hover:text-white "
             >
               <span className="transition duration-700 ease-in-out transform hover:scale-105">Buy Now</span>
             </Button>

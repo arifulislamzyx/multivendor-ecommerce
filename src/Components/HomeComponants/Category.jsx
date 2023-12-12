@@ -21,11 +21,11 @@ export const Category =()=>{
      
     return(
         <div className="bg-white">
-            <p className="text-2xl pt-5 lg:ml-35 md:ml-32 sm:ml-2">Popular Categories</p>
-            <div className="grid grid-cols-3 gap-4 w-3/4 m-auto bg-white rounded-xl">
+            <p className="text-2xl pt-5 lg:ml-35 md:ml-32 sm:items-center">Popular Categories</p>
+            <div className="grid grid-cols-3 gap-4 w-3/4 m-auto bg-white rounded-xl ">
             {
                 categoriesData.map(category =>(
-                    <div key={category._id} className="p-5 rounded-xl items-center">
+                    <div key={category._id} className="p-5 rounded-xl items-center sm:rounded-full">
                         
                         <Image width={200} height={200} src={category.imageUrl} alt="" className="rounded" />
                         <p className="mt-5">{category.name}</p>

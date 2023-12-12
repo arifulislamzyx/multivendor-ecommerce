@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, Link, TableFooter, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import mitnog from "../../../public/mitnog.png" 
 

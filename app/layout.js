@@ -5,7 +5,7 @@ import MyLayout from "@/layout";
 import { ReactQueryProvider } from "./ReactQueryProvider";
 import { AuthProvider } from "@/Providers/AuthProviders";
 // import Navbar from "./(home)/Navbar";
-import Footer from "@/layout/Footer";
+import Footer from "./../src/Components/HomeComponants/Footer";
 import NavbarMaked from "../app/(home)/NavbarMaked"
 
 

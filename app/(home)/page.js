@@ -4,9 +4,7 @@ import Header from "./Header";
 import Products from "../all-products/Products";
 import { Category } from "@/Components/HomeComponants/Category";
 import { NewProducts } from "@/Components/HomeComponants/Newproducts";
-import HotDeals from "@/Components/HomeComponants/HotDeals";
-// import Partner from "@/Components/HomeComponants/Partner";
-
+import {HotDeals} from "../../src/Components/HomeComponants/HotDeals"
 
 export default function Home() {
   return (
@@ -16,7 +14,6 @@ export default function Home() {
       <Category></Category>
       <HotDeals></HotDeals>
       <Products></Products>
-      {/* <Partner></Partner> */}
 
     </div>
   );

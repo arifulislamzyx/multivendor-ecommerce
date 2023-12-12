@@ -6,7 +6,7 @@ import hoteDeals3 from "../../../public/hotDeals/hotDeals3.png"
 import hoteDeals4 from "../../../public/hotDeals/hotDeals4.png"
 import Image from 'next/image'
 
-const HotDeals = () => {
+export const HotDeals = () => {
 
     const images = [hoteDeals1, hoteDeals2, hoteDeals3, hoteDeals4]
     const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -30,5 +30,3 @@ const HotDeals = () => {
     </div>
   )
 }
-
-export default HotDeals

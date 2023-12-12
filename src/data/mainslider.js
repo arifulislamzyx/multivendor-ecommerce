@@ -3,7 +3,6 @@ import img1 from "../../public/assets/bannerImage1.jpeg";
 import img2 from "../../public/assets/bannerImage2.jpeg";
 import img3 from "../../public/assets/bannerImage3.jpeg";
 import img4 from "../../public/assets/bannerImage4.jpeg";
-import img5 from "../../public/assets/bannerImage5.png";
 
 
 const mainSlider = [
@@ -27,11 +26,7 @@ const mainSlider = [
     bg: img4,
     title: "Banner 3",
   },
-  {
-    id: 5,
-    bg: img5,
-    title: "Banner 3",
-  },
+  
 ];
 
 export default mainSlider;

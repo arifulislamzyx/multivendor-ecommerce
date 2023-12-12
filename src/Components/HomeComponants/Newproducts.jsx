@@ -130,7 +130,7 @@ export const NewProducts =()=>{
     {
       loading ? (
         <>
-        <div className="bg-white grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 rounded w-full max-w-[1050px] mx-auto relative 
+        <div className="bg-white grid grid-cols-2 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 rounded w-full max-w-[1050px] mx-auto relative 
         md:w-[750px] sm:m-auto">
           {Array.from({ length: 3 }).map((_, index) => (
             <Skeleton key={index} variant="rectangular" width={200} height={300} />

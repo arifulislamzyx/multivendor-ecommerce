@@ -5,7 +5,6 @@ import mitnog from "../../../public/mitnog.png"
 
 const Footer = () => {
   return (
-    <div className="bg-orange-300 p-5 rounded-xl sm:text-center">
     <Container className="bg-orange-300 p-5 rounded-xl sm:text-center">
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={3}>
@@ -34,7 +33,6 @@ const Footer = () => {
         </Grid>
       </Grid>
     </Container>
-    </div>
   );
 };
 

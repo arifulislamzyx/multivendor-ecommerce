@@ -25,7 +25,7 @@ const Products = () => {
       <p className="text-2xl pt-5 ml-32 lg:ml-35 md:ml-32 sm:ml-2">Explore Now</p>
       {
         loading ? (
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 px-4 w-full max-w-[1050px] mx-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 px-4 w-full max-w-[1050px] mx-auto mb-3">
               {Array.from({ length: 12 }).map((_, index) => (
                 <Skeleton key={index} variant="rectangular" width={200} height={300} />
               ))}

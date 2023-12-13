@@ -182,7 +182,7 @@ export const NewProducts =()=>{
           </Box>
           <CardContent>
             <Link href={`/all-products/${product._id}`}>
-              <Typography gutterBottom variant="h6" component="div">
+              <Typography gutterBottom variant="h6" component="div" className="sm:text-sm">
                 {truncateText(product.name, textMaxLength)}
               </Typography>
             </Link>

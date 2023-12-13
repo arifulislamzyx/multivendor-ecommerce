@@ -8,7 +8,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box, Rating, Skeleton, } from "@mui/material";
-
 import Link from "next/link";
 import { AuthContext } from "@/Providers/AuthProviders";
 import UseCart from "@/Hooks/useCart";
@@ -23,7 +22,6 @@ import ShareIcon from '@mui/icons-material/Share';
 
 const ProductDisplay = ({ product }) => {
   const { _id, name, img, price, rating } = product || [];
-  // console.log(product);
   const navigate = useRouter();
   const { user } = useContext(AuthContext);
   const [, refetch] = UseCart();
@@ -129,7 +127,7 @@ const truncateText =(text, maxLength)=>{
       </Box>
       <CardContent>
         <Link href={`/all-products/${_id}`}>
-          <Typography gutterBottom variant="h6" component="div">
+          <Typography  gutterBottom variant="h6" component="div" className="sm:text-sm">
             {truncateText(name, textMaxLength)}
           </Typography>
         </Link>

@@ -1,10 +1,9 @@
-
 "use client";
 import Header from "./Header";
 import Products from "../all-products/Products";
 import { Category } from "@/Components/HomeComponants/Category";
 import { NewProducts } from "@/Components/HomeComponants/Newproducts";
-import HotDeals from "../../src/Components/HomeComponants/HotDeals"
+import HotDeals from "../../src/Components/HomeComponants/HotDeals";
 
 export default function Home() {
   return (
@@ -14,7 +13,6 @@ export default function Home() {
       <Category></Category>
       <HotDeals></HotDeals>
       <Products></Products>
-
     </div>
   );
 }

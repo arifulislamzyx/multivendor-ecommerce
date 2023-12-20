@@ -9,22 +9,24 @@ export const Category =()=>{
     console.log( "all categories",categoriesData);
 
 
-    useEffect(()=>{
-       const fetchCategpries = async ()=>{ try {
-         const categoriesRes = await fetch("https://mitnog-server.vercel.app/categories")
-        if(!categoriesRes.ok){
-            throw new error("Netword Issue Categories")
-        }
-
-        const data = await categoriesRes.json()
-        setCategoriesData(data)
-       } catch (error) {
-        console.error("Error fetching categories:", error);
-       }}
-
-        fetchCategpries()
-    },[])
-     
+    useEffect(() => {
+        const fetchCategories = async () => {
+          try {
+            const categoriesRes = await fetch("https://mitnog-server.vercel.app/categories");
+            if (!categoriesRes.ok) {
+              throw new Error("Network Issue Categories");
+            }
+      
+            const data = await categoriesRes.json();
+            setCategoriesData(data);
+          } catch (error) {
+            console.error("Error fetching categories:", error);
+          }
+        };
+      
+        fetchCategories();
+      }, []);
+      
     return(
         <div className="bg-white">
             <p className="text-2xl pt-5 lg:ml-35 md:ml-32 sm:ml-2">Popular Categories</p>

@@ -21,7 +21,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
-import StorefrontIcon from '@mui/icons-material/Storefront';
+import StorefrontIcon from "@mui/icons-material/Storefront";
 
 import AddShoppingCart from "@mui/icons-material/AddShoppingCart";
 import AddtoCart from "@/Components/Dashboard/AddtoCart";
@@ -63,12 +63,15 @@ function ResponsiveAddtoCartDrawer(props) {
             icon: <AddShoppingCart />,
             path: "/dashboard/addtocart",
           },
-          { text: "Add Product", icon: <StorefrontIcon />, path: "/dashboard/addProduct" },
+          {
+            text: "Add Product",
+            icon: <StorefrontIcon />,
+            path: "/dashboard/addProduct",
+          },
           { text: "Drafts", icon: <InboxIcon />, path: "/drafts" },
         ].map((item) => (
           <Link key={item.text} href={item.path}>
             <Typography style={{ textDecoration: "none", color: "inherit" }}>
-
               <ListItem disablePadding>
                 <ListItemButton>
                   <ListItemIcon>{item.icon}</ListItemIcon>
@@ -76,7 +79,6 @@ function ResponsiveAddtoCartDrawer(props) {
                 </ListItemButton>
               </ListItem>
             </Typography>
-
           </Link>
         ))}
       </List>

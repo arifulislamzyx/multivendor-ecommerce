@@ -22,67 +22,71 @@ import ListItemButton from "@mui/material/ListItem";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
-import StorefrontIcon from '@mui/icons-material/Storefront';
+import StorefrontIcon from "@mui/icons-material/Storefront";
 import AddShoppingCart from "@mui/icons-material/AddShoppingCart";
 import { useState } from "react";
 import Link from "next/link";
 
 const drawerWidth = 240;
 
-const DashboardLayout = ({children, ...props}) => {
-    const { window } = props;
-    const [mobileOpen, setMobileOpen] = useState(false);
-  
-    const handleDrawerToggle = () => {
-      setMobileOpen(!mobileOpen);
-    };
+const DashboardLayout = ({ children, ...props }) => {
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-    const drawer = (
-        <div>
-          <Toolbar />
-          <Divider />
-          <List>
-            {[
-              { text: "Home", icon: <HomeIcon />, path: "/" },
-              {
-                text: "Add Cart",
-                icon: <AddShoppingCart />,
-                path: "/dashboard/addtocart",
-              },
-              { text: "Add Product", icon: <StorefrontIcon />, path: "/dashboard/addProduct" },
-              { text: "Drafts", icon: <InboxIcon />, path: "/drafts" },
-            ].map((item) => (
-              <Link key={item.text} href={item.path}>
-                <p style={{ textDecoration: "none", color: "inherit" }}>
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemIcon>{item.icon}</ListItemIcon>
-                      <ListItemText primary={item.text} />
-                    </ListItemButton>
-                  </ListItem>
-                </p>
-              </Link>
-            ))}
-          </List>
-          <Divider />
-          <List>
-            {["All mail", "Trash", "Spam"].map((text, index) => (
-              <ListItem key={text} disablePadding>
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const drawer = (
+    <div>
+      <Toolbar />
+      <Divider />
+      <List>
+        {[
+          { text: "Home", icon: <HomeIcon />, path: "/" },
+          {
+            text: "Add Cart",
+            icon: <AddShoppingCart />,
+            path: "/dashboard/addtocart",
+          },
+          {
+            text: "Add Product",
+            icon: <StorefrontIcon />,
+            path: "/dashboard/addProduct",
+          },
+          { text: "Drafts", icon: <InboxIcon />, path: "/drafts" },
+        ].map((item) => (
+          <Link key={item.text} href={item.path}>
+            <p style={{ textDecoration: "none", color: "inherit" }}>
+              <ListItem disablePadding>
                 <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.text} />
                 </ListItemButton>
               </ListItem>
-            ))}
-          </List>
-        </div>
-      );
+            </p>
+          </Link>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {["All mail", "Trash", "Spam"].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
 
-      const container =
+  const container =
     window !== undefined ? () => window().document.body : undefined;
-      
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -93,7 +97,7 @@ const DashboardLayout = ({children, ...props}) => {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        {/* <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -106,7 +110,7 @@ const DashboardLayout = ({children, ...props}) => {
           <Typography variant="h6" noWrap component="div">
             Dashboard
           </Typography>
-        </Toolbar>
+        </Toolbar> */}
       </AppBar>
       <Box
         component="nav"
@@ -158,16 +162,15 @@ const DashboardLayout = ({children, ...props}) => {
         {children}
       </Box>
     </Box>
-  )
-}
+  );
+};
 
 DashboardLayout.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
-    window: PropTypes.func,
-    
-  };
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window: PropTypes.func,
+};
 
-export default DashboardLayout
+export default DashboardLayout;

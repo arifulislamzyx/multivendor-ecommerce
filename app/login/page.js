@@ -17,7 +17,7 @@ import { useContext } from "react";
 import { AuthContext } from "@/Providers/AuthProviders";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
-import { getCookie } from "cookies-next";
+import { getCookies } from "cookies-next";
 
 const metadata = {
   title: "Login- Mitnog",
@@ -78,7 +78,7 @@ export default function SignIn() {
           showConfirmButton: false,
           timer: 1500,
         });
-        getCookie("token");
+        getCookies("token");
         navigate.push("/");
       })
       .catch((error) => {
@@ -96,7 +96,7 @@ export default function SignIn() {
   return (
     // <ThemeProvider theme={defaultTheme}>
 
-    <Container component="main" maxWidth="xs" >
+    <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Box
         sx={{

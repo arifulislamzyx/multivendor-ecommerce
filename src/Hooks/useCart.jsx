@@ -4,7 +4,6 @@ import { useContext } from "react";
 import { useQuery } from "react-query";
 import UserAxiosSecure from "./useAxiosSecure";
 
-
 const UseCart = () => {
   const { user, loading } = useContext(AuthContext);
   const [axiosSecure] = UserAxiosSecure();

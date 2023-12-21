@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useContext, useState } from "react";
 
 import Card from "@mui/material/Card";
@@ -7,18 +7,16 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Box, Rating, Skeleton, } from "@mui/material";
+import { Box, Rating, Skeleton } from "@mui/material";
 import Link from "next/link";
 import { AuthContext } from "@/Providers/AuthProviders";
 import UseCart from "@/Hooks/useCart";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import CompressIcon from '@mui/icons-material/Compress';
-import ShareIcon from '@mui/icons-material/Share';
-
-
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import CompressIcon from "@mui/icons-material/Compress";
+import ShareIcon from "@mui/icons-material/Share";
 
 const ProductDisplay = ({ product }) => {
   const { _id, name, img, price, rating } = product || [];
@@ -28,18 +26,17 @@ const ProductDisplay = ({ product }) => {
   const [hovered, setHovered] = useState(false);
   const textMaxLength = 13;
 
-const truncateText =(text, maxLength)=>{
-  if(text.length <= maxLength){
-    return text;
-  }
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) {
+      return text;
+    }
 
-  return `${text.slice(0,maxLength)}...`
-}
+    return `${text.slice(0, maxLength)}...`;
+  };
 
   const toggleHover = () => {
     setHovered(!hovered);
   };
-
 
   const handleAddToCart = (product) => {
     if (user && user.email) {
@@ -51,7 +48,7 @@ const truncateText =(text, maxLength)=>{
         email: user.email,
       };
 
-      fetch("https://mitnog-server.vercel.app/carts", {
+      fetch("https://lazy-lime-seahorse-wrap.cyclic.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -88,65 +85,68 @@ const truncateText =(text, maxLength)=>{
     }
   };
   return (
-   
     <Box className="w-70 gap-5 mt-5 rounded shadow-xl">
-    <Card sx={{ maxWidth: 345 }}>
-      <Box
-        onMouseEnter={toggleHover}
-        onMouseLeave={toggleHover}
-        style={{ position: 'relative' }}
-      >
-        <CardMedia
-          component="img"
-          alt={name}
-          height="140"
-          image={img}
-          className="transition duration-700 ease-in-out transform hover:scale-105"
-        />
-        {hovered && (
-          <Box
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '85%',
-              transform: 'translate(-50%, -50%)',
-                            
-            }}
-          >
-            <Button className="bg-white text-black border-red-100 m-1 ">
-              <FavoriteBorderIcon/>
-            </Button>
-            <Button className="bg-white text-black m-1 " >
-              <CompressIcon/>
-            </Button>
-            <Button className="bg-white text-black m-1">
-              <ShareIcon/>
-            </Button>
-          </Box>
-        )}
-      </Box>
-      <CardContent>
-        <Link href={`/all-products/${_id}`}>
-          <Typography  gutterBottom variant="h6" component="div" className="sm:text-sm">
-            {truncateText(name, textMaxLength)}
-          </Typography>
-        </Link>
-        <Rating></Rating>
-        <p className="ml-2">${price}</p>
-      </CardContent>
-      <CardActions className="flex justify-center">
-            <Button
-              onClick={() => handleAddToCart(product)}
-              variant="outlined"
-              className=" rounded-2xl hover:bg-orange-500 hover:text-white "
+      <Card sx={{ maxWidth: 345 }}>
+        <Box
+          onMouseEnter={toggleHover}
+          onMouseLeave={toggleHover}
+          style={{ position: "relative" }}
+        >
+          <CardMedia
+            component="img"
+            alt={name}
+            height="140"
+            image={img}
+            className="transition duration-700 ease-in-out transform hover:scale-105"
+          />
+          {hovered && (
+            <Box
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "85%",
+                transform: "translate(-50%, -50%)",
+              }}
             >
-              <span className="transition duration-700 ease-in-out transform hover:scale-105">Add To Cart</span>
-            </Button>
-          </CardActions>
-    </Card>
-  </Box>
- 
-
+              <Button className="bg-white text-black border-red-100 m-1 ">
+                <FavoriteBorderIcon />
+              </Button>
+              <Button className="bg-white text-black m-1 ">
+                <CompressIcon />
+              </Button>
+              <Button className="bg-white text-black m-1">
+                <ShareIcon />
+              </Button>
+            </Box>
+          )}
+        </Box>
+        <CardContent>
+          <Link href={`/all-products/${_id}`}>
+            <Typography
+              gutterBottom
+              variant="h6"
+              component="div"
+              className="sm:text-sm"
+            >
+              {truncateText(name, textMaxLength)}
+            </Typography>
+          </Link>
+          <Rating></Rating>
+          <p className="ml-2">${price}</p>
+        </CardContent>
+        <CardActions className="flex justify-center">
+          <Button
+            onClick={() => handleAddToCart(product)}
+            variant="outlined"
+            className=" rounded-2xl hover:bg-orange-500 hover:text-white "
+          >
+            <span className="transition duration-700 ease-in-out transform hover:scale-105">
+              Add To Cart
+            </span>
+          </Button>
+        </CardActions>
+      </Card>
+    </Box>
   );
 };
 

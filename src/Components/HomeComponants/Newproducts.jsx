@@ -57,7 +57,7 @@ export const NewProducts = () => {
 
       console.log("acrtitems", cartItem);
 
-      fetch("https://mitnog-server.vercel.app/carts", {
+      fetch("https://lazy-lime-seahorse-wrap.cyclic.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -12,16 +12,15 @@ import UseCart from "@/Hooks/useCart";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 
-
 const textMaxLength = 13;
 
-const truncateText =(text, maxLength)=>{
-  if(text.length <= maxLength){
+const truncateText = (text, maxLength) => {
+  if (text.length <= maxLength) {
     return text;
   }
 
-  return `${text.slice(0,maxLength)}...`
-}
+  return `${text.slice(0, maxLength)}...`;
+};
 const SingleProductShow = ({ product }) => {
   const { _id, name, img, price, rating } = product || [];
   // console.log(product);
@@ -39,7 +38,7 @@ const SingleProductShow = ({ product }) => {
         email: user.email,
       };
 
-      fetch("https://mitnog-server.vercel.app/carts", {
+      fetch("https://lazy-lime-seahorse-wrap.cyclic.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

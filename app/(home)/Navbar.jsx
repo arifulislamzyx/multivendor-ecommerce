@@ -49,12 +49,12 @@ const NavbarMaked = () => {
                 placeholder="Search Items"
               />
             </div>
-            <div className="flex items-center">
+            <div className="relative flex items-center">
               <FavoriteBorderIcon className=" mr-4 w-10 text-white"></FavoriteBorderIcon>
               <Link href="/dashboard/addtocart">
-                <AddShoppingCartIcon className="relative mr-4 w-10 text-white  "></AddShoppingCartIcon>
+                <AddShoppingCartIcon className=" mr-4 w-10 text-white  "></AddShoppingCartIcon>
               </Link>
-              <div className=" absolute badge badge-secondary text-emerald-800 right-32 mt-6">
+              <div className="absolute badge badge-secondary text-black left-20 top-1">
                 +{cart?.length || 0}
               </div>
 

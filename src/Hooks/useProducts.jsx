@@ -6,7 +6,7 @@ const useProducts = () => {
   const [loading, setLoading] = useState(true);
 
   // useEffect(() => {
-  //   fetch("https://mitnog-server.vercel.app/products")
+  //   fetch("https://lazy-lime-seahorse-wrap.cyclic.app/products")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       // console.log(data);
@@ -18,9 +18,11 @@ const useProducts = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://mitnog-server.vercel.app/products");
+        const response = await fetch(
+          "https://lazy-lime-seahorse-wrap.cyclic.app/products"
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok.');
+          throw new Error("Network response was not ok.");
         }
         const data = await response.json();
         setProducts(data);
@@ -29,10 +31,10 @@ const useProducts = () => {
         console.error("Product Fetching Failed:", error);
       }
     };
-  
+
     fetchData();
   }, []);
-  
+
   return { products, loading };
 };
 

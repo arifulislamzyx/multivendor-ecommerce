@@ -13,7 +13,7 @@ const SingleProducts = ({params}) => {
   
   useEffect(()=>{
 
-  fetch(`https://mitnog-server.vercel.app/products/${singleProduct}`)
+  fetch(`https://lazy-lime-seahorse-wrap.cyclic.app/products/${singleProduct}`)
   .then((res)=>res.json())
   .then((data) => {
     setProducts(data);
@@ -33,7 +33,7 @@ const SingleProducts = ({params}) => {
 
   const fetchRelatedProduct =(category)=>{
 
-    fetch(`https://mitnog-server.vercel.app/products?category=${category}&limit=5`)
+    fetch(`https://lazy-lime-seahorse-wrap.cyclic.app/products?category=${category}&limit=5`)
     .then(res=>res.json())
     .then(data=> setRelatedProducts(data))
     .catch(err=> {
@@ -51,7 +51,7 @@ const SingleProducts = ({params}) => {
         email: user.email,
       };
 
-        fetch("https://mitnog-server.vercel.app/carts", {
+        fetch("https://lazy-lime-seahorse-wrap.cyclic.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

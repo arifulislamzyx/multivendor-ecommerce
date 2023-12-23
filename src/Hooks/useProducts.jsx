@@ -6,7 +6,7 @@ const useProducts = () => {
   const [loading, setLoading] = useState(true);
 
   // useEffect(() => {
-  //   fetch("https://lazy-lime-seahorse-wrap.cyclic.app/products")
+  //   fetch("https://mitnog-server.vercel.app/products")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       // console.log(data);
@@ -19,7 +19,7 @@ const useProducts = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://lazy-lime-seahorse-wrap.cyclic.app/products"
+          "https://mitnog-server.vercel.app/products"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok.");

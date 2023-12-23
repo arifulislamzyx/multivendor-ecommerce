@@ -48,7 +48,7 @@ const ProductDisplay = ({ product }) => {
         email: user.email,
       };
 
-      fetch("https://lazy-lime-seahorse-wrap.cyclic.app/carts", {
+      fetch("https://mitnog-server.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

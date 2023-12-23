@@ -9,7 +9,7 @@ const Categories = () => {
   console.log("all categories", categoriesData);
 
   useEffect(() => {
-    fetch("https://lazy-lime-seahorse-wrap.cyclic.app/categories")
+    fetch("https://mitnog-server.vercel.app/categories")
       .then((res) => res.json())
       .then((data) => setCategoriesData(data))
       .catch((err) => {

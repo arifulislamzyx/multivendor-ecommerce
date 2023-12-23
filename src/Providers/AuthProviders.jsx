@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 
       if (currentUser) {
         axios
-          .post("https://lazy-lime-seahorse-wrap.cyclic.app/jwt", {
+          .post("https://mitnog-server.vercel.app/jwt", {
             email: currentUser.email,
           })
           .then((data) => {

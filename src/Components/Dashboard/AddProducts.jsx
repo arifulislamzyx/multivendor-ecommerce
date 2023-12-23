@@ -14,7 +14,7 @@ const AddProducts = () => {
   //     console.log(name, category, price, stock, imageFile);
   //     const newProductData = { name, category, price, stock };
 
-  //     fetch("https://lazy-lime-seahorse-wrap.cyclic.app/products", {
+  //     fetch("https://mitnog-server.vercel.app/products", {
   //       method: "POST",
   //       headers: { "Content-Type": "application/json" },
   //       body: JSON.stringify(newProductData),

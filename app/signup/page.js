@@ -79,7 +79,7 @@ export default function SignUp() {
           email: createdUser.email,
         };
 
-        fetch("https://lazy-lime-seahorse-wrap.cyclic.app/users", {
+        fetch("https://mitnog-server.vercel.app/users", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(saveUserToMongoDb),

@@ -11,7 +11,7 @@ export const Category = () => {
     const fetchCategories = async () => {
       try {
         const categoriesRes = await fetch(
-          "https://lazy-lime-seahorse-wrap.cyclic.app/categories"
+          "https://mitnog-server.vercel.app/categories"
         );
         if (!categoriesRes.ok) {
           throw new Error("Network Issue Categories");

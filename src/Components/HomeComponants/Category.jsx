@@ -1,49 +1,25 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import categoriesImage from "@/data/categoriesImage";
 
 export const Category = () => {
-  const [categoriesData, setCategoriesData] = useState([]);
-
-  console.log("all categories", categoriesData);
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const categoriesRes = await fetch(
-          "https://mitnog-server.vercel.app/categories"
-        );
-        if (!categoriesRes.ok) {
-          throw new Error("Network Issue Categories");
-        }
-
-        const data = await categoriesRes.json();
-        setCategoriesData(data);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      }
-    };
-
-    fetchCategories();
-  }, []);
-
   return (
     <div className="bg-white">
-      <p className="text-2xl pt-5 lg:ml-35 md:ml-32 sm:ml-2">
+      <p className="text-2xl font-bold pt-5 lg:ml-35 md:ml-32 ml-2">
         Popular Categories
       </p>
-      <div className="grid grid-cols-3 gap-4 w-3/4 m-auto bg-white rounded-xl ">
-        {categoriesData.map((category) => (
+      <div className="grid grid-cols-4 gap-4 max-w-[1050px] m-auto bg-white rounded-xl ">
+        {categoriesImage.map((category) => (
           <div
-            key={category._id}
+            key={category.id}
             className="p-5 rounded-xl items-center sm:rounded-full"
           >
             <Image
               width={200}
               height={200}
-              src={category.imageUrl}
-              alt=""
-              className="rounded"
+              src={category.image}
+              alt="categories"
+              className="rounded li hover:shadow-2xl"
             />
             <p className="mt-5">{category.name}</p>
           </div>

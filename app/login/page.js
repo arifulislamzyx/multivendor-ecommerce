@@ -24,38 +24,9 @@ const metadata = {
   description: "A Multi-Vendor e-Commerce Platform ",
 };
 
-// function Copyright(props: any){
-//   return (
-//     <Typography
-//       variant="body2"
-//       color="text.secondary"
-//       align="center"
-//       {...props}
-//     >
-//       {"Copyright © "}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{" "}
-//       {new Date().getFullYear()}
-//       {"."}
-//     </Typography>
-//   );
-// }
-
-// TODO remove, this demo shouldn't need to reset the theme.
-// const defaultTheme = createTheme();
-
 export default function SignIn() {
   const { signIn } = useContext(AuthContext);
   const navigate = useRouter();
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   console.log({
-  //     email: data.get("email"),
-  //     password: data.get("password"),
-  //   });
-  // };
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -94,9 +65,7 @@ export default function SignIn() {
   };
 
   return (
-    // <ThemeProvider theme={defaultTheme}>
-
-    <Container component="main" maxWidth="xs">
+    <Container className="h-screen" component="main" maxWidth="xs">
       <CssBaseline />
       <Box
         sx={{
@@ -112,7 +81,6 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        {/* //onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}*/}
         <Box component="form" onSubmit={handleSignIn}>
           <TextField
             margin="normal"
@@ -149,20 +117,18 @@ export default function SignIn() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link href="" variant="body2">
                 Forgot password?
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
           </Grid>
         </Box>
       </Box>
-      {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
     </Container>
-    // </ThemeProvider>
   );
 }

@@ -24,7 +24,11 @@ const Categories = () => {
       <div className="grid grid-cols-3 gap-4 w-3/4 m-auto bg-white rounded-xl">
         {categoriesData.map((category) => (
           <div key={category._id} className="p-5 rounded-xl items-center">
-            <Image src={category.imageUrl} alt="" className="rounded" />
+            <Image
+              src={category.imageUrl}
+              alt="categories"
+              className="rounded"
+            />
             <p className="mt-5">{category.name}</p>
           </div>
         ))}

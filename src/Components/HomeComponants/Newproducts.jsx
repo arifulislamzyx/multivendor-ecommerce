@@ -140,7 +140,7 @@ export const NewProducts = () => {
       {loading ? (
         <>
           <div
-            className="bg-white grid grid-cols-2 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 rounded w-full max-w-[1050px] mx-auto relative 
+            className="bg-white grid grid-cols-2 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 rounded w-full max-w-[1050px] mx-auto relative 
         md:w-[750px] sm:m-auto"
           >
             {Array.from({ length: 3 }).map((_, index) => (
@@ -164,7 +164,7 @@ export const NewProducts = () => {
                 <Box
                   component="div"
                   key={product._id}
-                  className="max-w-[450px] p-5 bg-white rounded-xl sm:h-28"
+                  className="max-w-[450px] p-5 bg-white rounded-xl sm:h-28 transition-all"
                 >
                   <Card sx={{ maxWidth: 345 }}>
                     <Box

@@ -12,6 +12,7 @@ import { Dashboard, NotificationAddOutlined } from "@mui/icons-material";
 import { deleteCookie } from "cookies-next";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { CiSearch } from "react-icons/ci";
 
 const NavbarMaked = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -82,18 +83,21 @@ const NavbarMaked = () => {
         </>
       ) : (
         <>
-          <div className="flex items-center justify-between px-4 ">
+          <div className="flex items-center justify-between px-4 max-w-[1200px] ">
             <Link href="/">
               <Image src={mitnog} width="90" height="7" alt="profile"></Image>
             </Link>
-            <div className="hidden md:flex items-center">
+            <div className="relative hidden md:flex items-center ">
               <input
-                className="min-w-[700px] p-2 rounded-xl text-black border border-gray-300 focus:outline-none focus:border-blue-500"
+                className=" min-w-[700px] p-2 rounded-xl text-black border border-gray-300 focus:outline-none focus:border-blue-500"
                 type="search"
                 name="search"
                 id=""
                 placeholder="Search Items"
               />
+            </div>
+            <div className="absolute right-[355px] font-bold ">
+              <CiSearch></CiSearch>
             </div>
             <div className="flex gap-3">
               <Link href="/login">Login</Link>

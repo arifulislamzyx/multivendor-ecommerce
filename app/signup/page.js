@@ -25,38 +25,9 @@ const metadata = {
   description: "A Multi-Vendor e-Commerce Platform ",
 };
 
-// function Copyright(props: any) {
-//   return (
-//     <Typography
-//       variant="body2"
-//       color="text.secondary"
-//       align="center"
-//       {...props}
-//     >
-//       {"Copyright © "}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{" "}
-//       {new Date().getFullYear()}
-//       {"."}
-//     </Typography>
-//   );
-// }
-
-// TODO remove, this demo shouldn't need to reset the theme.
-// const defaultTheme = createTheme();
-
 export default function SignUp() {
   const { createUser } = useContext(AuthContext);
   const navigate = useRouter();
-  //   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //     event.preventDefault();
-  //     const data = new FormData(event.currentTarget);
-  //     console.log({
-  //       email: data.get("email"),
-  //       password: data.get("password"),
-  //     });
-  //   };
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -98,7 +69,7 @@ export default function SignUp() {
         console.log(error);
         Swal.fire({
           position: "top-end",
-          icon: "success",
+          icon: "warning",
           title: "Something Wrong",
           showConfirmButton: false,
           timer: 1500,
@@ -107,8 +78,7 @@ export default function SignUp() {
   };
 
   return (
-    // <ThemeProvider theme={defaultTheme}>
-    <Container component="main" maxWidth="xs">
+    <Container className="h-screen" component="main" maxWidth="xs">
       <CssBaseline />
       <Box
         sx={{
@@ -194,8 +164,6 @@ export default function SignUp() {
           </Grid>
         </Box>
       </Box>
-      {/* <Copyright sx={{ mt: 5 }} /> */}
     </Container>
-    // </ThemeProvider>
   );
 }

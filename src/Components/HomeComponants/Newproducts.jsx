@@ -16,12 +16,12 @@ import {
   Card,
   CardActions,
   CardContent,
-  CardMedia,
   Rating,
   Skeleton,
   Typography,
 } from "@mui/material";
 import Link from "next/link";
+import Image from "next/image";
 
 const textMaxLength = 10;
 
@@ -136,7 +136,9 @@ export const NewProducts = () => {
 
   return (
     <div className="bg-white">
-      <p className="text-2xl lg:ml-35 md:ml-32 pt-5  sm:ml-2">Flash Sale</p>
+      <p className="text-2xl font-bold lg:ml-35 md:ml-32 pt-5  sm:ml-2">
+        Flash Sale
+      </p>
       {loading ? (
         <>
           <div
@@ -172,11 +174,12 @@ export const NewProducts = () => {
                       onMouseLeave={toggleHover}
                       style={{ position: "relative" }}
                     >
-                      <CardMedia
+                      <Image
                         component="img"
                         alt={product.name}
-                        height="140"
-                        image={product.img}
+                        height={150}
+                        width={180}
+                        src={product.img}
                         className="transition duration-700 ease-in-out transform hover:scale-105"
                       />
                       {hovered && (

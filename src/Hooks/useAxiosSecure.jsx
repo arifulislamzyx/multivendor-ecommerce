@@ -4,7 +4,7 @@ const { useRouter } = require("next/navigation");
 const { useContext, useEffect } = require("react");
 
 const axiosSecure = axios.create({
-  baseURL: "https://mitnog-server.vercel.app/",
+  baseURL: "https://mitnog-server.vercel.app",
 });
 
 const UserAxiosSecure = () => {

@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 
       if (currentUser) {
         axios
-          .post("https://mitnog-server.vercel.app/jwt", {
+          .post("https://mitnog-server.vercel.app/auth/login", {
             email: currentUser.email,
           })
           .then((data) => {

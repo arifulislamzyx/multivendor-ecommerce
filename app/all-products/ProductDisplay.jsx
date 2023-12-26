@@ -17,9 +17,11 @@ import { useRouter } from "next/navigation";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import CompressIcon from "@mui/icons-material/Compress";
 import ShareIcon from "@mui/icons-material/Share";
+import Image from "next/image";
 
 const ProductDisplay = ({ product }) => {
   const { _id, name, img, price, rating } = product || [];
+
   const navigate = useRouter();
   const { user } = useContext(AuthContext);
   const [, refetch] = UseCart();
@@ -39,6 +41,7 @@ const ProductDisplay = ({ product }) => {
   };
 
   const handleAddToCart = (product) => {
+    console.log(product);
     if (user && user.email) {
       const cartItem = {
         productId: _id,
@@ -92,11 +95,12 @@ const ProductDisplay = ({ product }) => {
           onMouseLeave={toggleHover}
           style={{ position: "relative" }}
         >
-          <CardMedia
+          <Image
             component="img"
             alt={name}
-            height="140"
-            image={img}
+            height={150}
+            width={180}
+            src={img}
             className="transition duration-700 ease-in-out transform hover:scale-105"
           />
           {hovered && (

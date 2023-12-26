@@ -1,14 +1,20 @@
 import React from "react";
 import { Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
-import mitnog from "../../../public/mitnog.png" 
+import mitnog from "../../../public/mitnog.png";
 
 const Footer = () => {
   return (
-    <Container className="bg-orange-300 p-5 rounded-xl sm:text-center">
+    <Container className="bg-orange-400 p-5 sm:text-center">
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={3}>
-          <Image className="items-center" src={mitnog} width={90} height={8} alt="footerProfile"></Image>
+          <Image
+            className="items-center"
+            src={mitnog}
+            width={90}
+            height={8}
+            alt="footerProfile"
+          ></Image>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <Typography variant="h5">Mitnog</Typography>

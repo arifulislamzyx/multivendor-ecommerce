@@ -61,6 +61,7 @@ const ProductDisplay = ({ product }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
+            console.log(data.insertedId);
             refetch();
             Swal.fire({
               position: "top-end",

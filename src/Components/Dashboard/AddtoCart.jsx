@@ -64,9 +64,9 @@ export default function BasicTable() {
               </TableCell>
               <TableCell align="right">
                 <Image
-                  src={product?.Image}
-                  height={50}
-                  width={50}
+                  src={product.Image}
+                  height={100}
+                  width={100}
                   alt="addtocartimg"
                 ></Image>
               </TableCell>

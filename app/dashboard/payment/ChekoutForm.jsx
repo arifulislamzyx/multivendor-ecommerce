@@ -31,8 +31,8 @@ const CheckoutForm = ({ cart, price }) => {
     }
   }, [price, axiosSecure]);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     if (!stripe || !elements) {
       return;
@@ -140,7 +140,10 @@ const CheckoutForm = ({ cart, price }) => {
                         },
                     }}
                 /> */}
-      <form className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md"
+      >
         <div className="mb-4">
           <label htmlFor="card" className="block text-gray-700 font-bold mb-2">
             Card Details
@@ -170,7 +173,7 @@ const CheckoutForm = ({ cart, price }) => {
             "opacity-60 cursor-not-allowed"
           }`}
           type="submit"
-          // disabled={!stripe || !clientSecret || processing}
+          disabled={!stripe || !clientSecret || processing}
         >
           Pay
         </button>

@@ -3,7 +3,7 @@ import AddtoCart from "@/Components/Dashboard/AddtoCart";
 
 const page = () => {
   return (
-    <div className="h-5/6 w-5/6">
+    <div className="h-96 w-5/6">
       <AddtoCart></AddtoCart>
     </div>
   );

@@ -13,6 +13,8 @@ import { Box, Button, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Swal from "sweetalert2";
 import UserAxiosSecure from "@/Hooks/useAxiosSecure";
+import Link from "next/link";
+import axios from "axios";
 
 export default function BasicTable() {
   const [cart, refetch] = UseCart();
@@ -42,48 +44,56 @@ export default function BasicTable() {
     });
   };
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>#</TableCell>
-            <TableCell align="left">Product</TableCell>
-            <TableCell align="left">Name</TableCell>
-            <TableCell align="left">Price</TableCell>
-            <TableCell align="left">Action</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {cart.map((product, index) => (
-            <TableRow
-              key={product._id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {index + 1}
-              </TableCell>
-              <TableCell align="right">
-                <Image
-                  src={product.Image}
-                  height={100}
-                  width={100}
-                  alt="addtocartimg"
-                ></Image>
-              </TableCell>
-              <TableCell align="left">{product.name}</TableCell>
-              <TableCell align="left">$ {product.price}</TableCell>
-              <Button onClick={() => handleDeleteItems(product)}>
-                <DeleteIcon></DeleteIcon>
-              </Button>
+    <Box className="max-w-[1050px]">
+      <TableContainer component={Paper}>
+        <TableContainer sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>#</TableCell>
+              <TableCell>Product</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Price</TableCell>
+              <TableCell>Action</TableCell>
             </TableRow>
-          ))}
-          <Box className="flex items-center ml-96">
-            <Typography>Total Amount</Typography>
-            <TableCell className="ml-50">$ {total}</TableCell>
-            <Button>Pay Now</Button>
-          </Box>
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {cart.map((product, index) => (
+              <TableRow
+                key={product._id}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                className="items-center"
+              >
+                <TableCell component="th" scope="row">
+                  {index + 1}
+                </TableCell>
+                <TableCell align="right">
+                  <Image
+                    src={product.img}
+                    height={70}
+                    width={70}
+                    alt="addtocartimg"
+                  ></Image>
+                </TableCell>
+                <TableCell>{product.name}</TableCell>
+                <TableCell>$ {product.price}</TableCell>
+                <Button
+                  className="w-10 h-10 mt-6"
+                  onClick={() => handleDeleteItems(product)}
+                >
+                  <DeleteIcon></DeleteIcon>
+                </Button>
+              </TableRow>
+            ))}
+          </TableBody>
+        </TableContainer>
+      </TableContainer>
+      <Box className="flex items-center justify-between max-w-full ">
+        <Typography className="inline-block">Total Amount</Typography>
+        <TableCell>$ {total}</TableCell>
+        <Link href="/dashboard/payment">
+          <Button>Pay Now</Button>
+        </Link>
+      </Box>
+    </Box>
   );
 }

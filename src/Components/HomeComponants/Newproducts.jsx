@@ -48,9 +48,9 @@ export const NewProducts = () => {
   const handleAddToCart = (product) => {
     if (user && user.email) {
       const cartItem = {
-        productId: product._id,
+        productId: _id,
         name,
-        image,
+        img,
         price,
         email: user.email,
       };

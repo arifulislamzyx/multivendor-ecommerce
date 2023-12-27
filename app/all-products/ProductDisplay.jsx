@@ -89,7 +89,7 @@ const ProductDisplay = ({ product }) => {
     }
   };
   return (
-    <Box className="w-70 gap-5 mt-5 rounded shadow-xl">
+    <Box className="w-70 gap-5 mt-5 rounded shadow-xl hover:scale-105 transition-all hover:shadow-2xl">
       <Card sx={{ maxWidth: 345 }}>
         <Box
           onMouseEnter={toggleHover}

@@ -13,10 +13,6 @@ const Products = () => {
   // console.log(products.length);
   const [showAll, setShowAll] = useState(false);
 
-  // const buttonClassName = showAll
-  //   ? "bg-blue-600 w-30 h-10 absolute bottom-0 top-[300rem] left-[35rem] mb-1"
-  //   : "bg-blue-600 w-30 h-10 absolute bottom-0 top-[50rem] left-[35rem]";
-
   return (
     <div className="bg-white">
       <p className="text-2xl font-bold pt-5 ml-32 lg:ml-35 md:ml-32 sm:ml-2">
@@ -35,7 +31,7 @@ const Products = () => {
         </div>
       ) : (
         <>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 px-4 w-full max-w-[1050px] mx-auto ">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 px-4 w-full max-w-[1050px] mx-auto">
             {products
               .slice(0, showAll ? products.length : 12)
               .map((product, index) => (
@@ -56,7 +52,6 @@ const Products = () => {
                   "Show Less"
                 ) : (
                   <>
-                    {" "}
                     <Link href="/all-products">Show More..</Link>
                   </>
                 )}

@@ -13,6 +13,7 @@ import useAxiosSecure from "../../../src/Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
 const CheckoutForm = ({ cart, price }) => {
+  console.log(cart, price);
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useContext(AuthContext);
@@ -25,7 +26,7 @@ const CheckoutForm = ({ cart, price }) => {
   useEffect(() => {
     if (price > 0) {
       axiosSecure.post("/create-payment-intent", { price }).then((res) => {
-        console.log(res.data.clientSecret);
+        console.log("ClientSecret", res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
       });
     }
@@ -120,26 +121,6 @@ const CheckoutForm = ({ cart, price }) => {
 
   return (
     <>
-      {/* <form className="w-2/3 m-8" onSubmit={handleSubmit}>
-
-                <CardElement
-
-                className="bg-white p-6"
-                    options={{
-                        style: {
-                            base: {
-                                fontSize: '16px',
-                                color: '#424770',
-                                '::placeholder': {
-                                    color: '#aab7c4',
-                                },
-                            },
-                            invalid: {
-                                color: '#9e2146',
-                            },
-                        },
-                    }}
-                /> */}
       <form
         onSubmit={handleSubmit}
         className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md"

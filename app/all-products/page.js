@@ -1,5 +1,4 @@
 "use client";
-
 import useProducts from "@/Hooks/useProducts";
 import React from "react";
 import ProductDisplay from "./ProductDisplay";

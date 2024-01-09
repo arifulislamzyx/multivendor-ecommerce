@@ -1,11 +1,11 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { ReactQueryProvider } from "./ReactQueryProvider";
 import { AuthProvider } from "@/Providers/AuthProviders";
 import Footer from "./../src/Components/HomeComponants/Footer";
 import Navbar from "./(home)/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const sf_pro = localFont({ src: "./sf-pro.woff2" });
 
 export const metadata = {
   title: "Mitnog- Largest Online Shopping Mall",
@@ -15,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${sf_pro.className} antialiased`}>
         <ReactQueryProvider>
           <AuthProvider>
             <Navbar />

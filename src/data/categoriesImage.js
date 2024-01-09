@@ -3,7 +3,7 @@ import Image2 from "../../public/popularCategories/clothings.jpeg";
 import Image3 from "../../public/popularCategories/electronics.jpeg";
 import Image4 from "../../public/popularCategories/mobilePhones.webp";
 import Image5 from "../../public/popularCategories/sportsOutdoors.jpeg";
-import Image6 from "../../public/popularCategories/homekitchen.webp";
+import Image6 from "../../public/popularCategories/homeKitchen.png";
 import Image7 from "../../public/popularCategories/groceries.webp";
 import Image8 from "../../public/popularCategories/books.webp";
 
@@ -25,17 +25,17 @@ const categoriesImage = [
   },
   {
     id: 4,
-    name: "Mobile Phones",
+    name: "Mobiles",
     image: Image4,
   },
   {
     id: 5,
-    name: "Sport & Outdoors",
+    name: "Sports",
     image: Image5,
   },
   {
     id: 6,
-    name: "Home & Kotchen",
+    name: "Kitchen",
     image: Image6,
   },
   {

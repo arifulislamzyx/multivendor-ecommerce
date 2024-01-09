@@ -41,7 +41,6 @@ const ProductDisplay = ({ product }) => {
   };
 
   const handleAddToCart = (product) => {
-    console.log(product);
     if (user && user.email) {
       const cartItem = {
         productId: _id,
@@ -50,6 +49,8 @@ const ProductDisplay = ({ product }) => {
         price,
         email: user.email,
       };
+
+      console.log(user);
 
       fetch("https://mitnog-server.vercel.app/carts", {
         method: "POST",
@@ -61,7 +62,7 @@ const ProductDisplay = ({ product }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
-            console.log(data.insertedId);
+            console.log("here is insertedId", data.insertedId);
             refetch();
             Swal.fire({
               position: "top-end",
@@ -70,26 +71,26 @@ const ProductDisplay = ({ product }) => {
               showConfirmButton: false,
               timer: 1500,
             });
-          } else {
-            Swal.fire({
-              title: "Please Login to Order Products",
-              text: "You won't be able to revert this!",
-              icon: "warning",
-              showCancelButton: true,
-              confirmButtonColor: "#3085d6",
-              cancelButtonColor: "#d33",
-              confirmButtonText: "Login Now",
-            }).then((result) => {
-              if (result.isConfirmed) {
-                navigate("/login", { state: { from: location } });
-              }
-            });
           }
         });
+    } else {
+      Swal.fire({
+        title: "Please Login to Order Products",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login Now",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
     }
   };
   return (
-    <Box className="w-70 gap-5 mt-5 rounded shadow-xl hover:scale-105 transition-all hover:shadow-2xl">
+    <Box className="gap-5 mt-5 rounded shadow-xl hover:scale-105 transition-all hover:shadow-2xl">
       <Card sx={{ maxWidth: 345 }}>
         <Box
           onMouseEnter={toggleHover}
@@ -99,8 +100,8 @@ const ProductDisplay = ({ product }) => {
           <Image
             component="img"
             alt={name}
-            height={150}
-            width={180}
+            height={100}
+            width={300}
             src={img}
             className="transition duration-700 ease-in-out transform hover:scale-105"
           />
@@ -131,7 +132,7 @@ const ProductDisplay = ({ product }) => {
               gutterBottom
               variant="h6"
               component="div"
-              className="sm:text-sm"
+              className="text-sm md:text-base"
             >
               {truncateText(name, textMaxLength)}
             </Typography>

@@ -94,16 +94,17 @@ const SingleProducts = ({ params }) => {
   ) : (
     <div className="p-10 ">
       <div className="flex gap-5 sm:flex-wrap">
-        <div className="p-10 rounded-xl bg-white shadow-xl">
+        <div className="p-10 w-full md:w-1/2 lg:w-1/2 rounded-xl bg-white shadow-xl">
           <Image
             width={500}
             height={450}
             src={products.img}
             alt={products.name}
+            className="hover:transform: scaleY(.9)"
           ></Image>
         </div>
 
-        <div className="md:w-1/2 lg:w-1/2 sm:w-full">
+        <div className="w-full md:w-1/2 lg:w-1/2">
           <h2 className="text-2xl mt-5">{products.name}</h2>
           <h3 className="text-sm mt-10">Item: {products.category}</h3>
           <p>
@@ -151,7 +152,7 @@ const SingleProducts = ({ params }) => {
           </div>
         </div>
         <p className="mt-5">Description: </p>
-        <p className="mt-2 text">
+        <p className="mt-2 text w-full md:w1/2 lg:1/2">
           Introducing our {products.name}, crafted from premium [Fabric Type]
           for a soft and luxurious feel. The [Design Element], whether elegant
           embroidery or chic prints, adds sophistication to this piece. Its

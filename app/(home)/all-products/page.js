@@ -3,7 +3,7 @@ import useProducts from "@/Hooks/useProducts";
 import React from "react";
 import ProductDisplay from "./ProductDisplay";
 
-export const metadata = {
+const metadata = {
   title: "Mitnog- Explore Products",
   description:
     "Discover a vast online marketplace with a wide array of products. Enjoy secure transactions and swift delivery for a seamless shopping experience. Join our satisfied customers and explore convenience at its finest",

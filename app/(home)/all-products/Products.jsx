@@ -1,5 +1,4 @@
 import useProducts from "@/Hooks/useProducts";
-// import ProductDisplay from "./ProductDisplay";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import Link from "next/link";

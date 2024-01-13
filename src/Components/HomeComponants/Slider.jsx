@@ -20,7 +20,7 @@ const Slider = () => {
   };
   return (
     <>
-      <div className="max-w-[1030px] rounded w-full mx-auto ">
+      <div className="max-w-[1050px] rounded w-full mx-auto ">
         <SlideR {...settings}>
           {mainSlider.map((sliderImg) => (
             <div key={sliderImg.id}>

@@ -2,7 +2,12 @@
 
 const nextConfig = {
   images: {
-    domains: ["assets.adidas.com", "images.pexels.com"],
+    domains: [
+      "assets.adidas.com",
+      "images.pexels.com",
+      "dummyimage.com",
+      "media.kohlsimg.com",
+    ],
   },
 
   env: {

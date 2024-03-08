@@ -4,10 +4,10 @@ import Image from "next/image";
 import mitnog from "../../../public/mitnog.png";
 import Link from "next/link";
 
-const Footer:React.FC = () => {
+const Footer: React.FC = () => {
   return (
     <Box className="bg-orange-400 p-5 text-center">
-      <Grid container className="max-w-[1050px] mx-auto">
+      <Grid container className="container">
         <Grid
           item
           xs={12}

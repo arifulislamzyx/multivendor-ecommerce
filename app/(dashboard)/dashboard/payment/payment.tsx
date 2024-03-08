@@ -1,13 +1,13 @@
 import CheckoutForm from "./ChekoutForm";
 import { Elements } from "@stripe/react-stripe-js";
-import useCart from "../../../src/Hooks/useCart";
+import useCart from "../../../../src/Hooks/useCart";
 import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(process.env.Stripe_PK_Key_For_Validation);
 console.log("key", stripePromise);
 
 const Payment: React.FC = () => {
-  const {cart} = useCart();
+  const { cart } = useCart();
   const total = cart.reduce((sum, item) => sum + item.price, 0);
   const price = parseFloat(total.toFixed(2));
 

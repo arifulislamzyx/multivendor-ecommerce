@@ -8,7 +8,7 @@ import img4 from "../../../public/showcase_cetalog/drill.png";
 
 const Showcase: React.FC = () => {
   return (
-    <div className="flex justify-center max-x-[1150px] gap-8">
+    <div className="container grid grid-cols-2 gap-4 md:flex justify-center md:gap-8">
       <div className="flex gap-4 items-center bg-slate-100 rounded-lg p-4">
         <Image alt="showcaseImage" src={img1} width={130} height={14}></Image>
         <div>

@@ -7,6 +7,9 @@ import HotDeals from "../../src/Components/HomeComponants/HotDeals";
 import { ReactElement } from "react";
 import Showcase from "@/Components/HomeComponants/Showcase";
 import OfferBaneer from "@/Components/HomeComponants/OfferBaneer";
+import Partner from "@/Components/HomeComponants/Partner";
+import BigSale from "@/Components/HomeComponants/BigSale";
+import BlogPost from "@/Components/HomeComponants/blogPost/BlogPost";
 
 export default function Home(): ReactElement {
   return (
@@ -15,9 +18,12 @@ export default function Home(): ReactElement {
       <Showcase />
       <Category />
       <NewProducts />
-      <HotDeals />
-      <OfferBaneer/>
+      <OfferBaneer />
       <Products />
+      <HotDeals />
+      <Partner />
+      <BigSale />
+      <BlogPost />
     </div>
   );
 }

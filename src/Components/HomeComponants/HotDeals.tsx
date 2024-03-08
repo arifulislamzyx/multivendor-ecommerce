@@ -37,13 +37,13 @@ const HotDeals: React.FC = () => {
   };
 
   return (
-    <div>
-      <p className=" text-2xl font-bold hidden sm:hidden md:block md:ml-32 md:py-4  lg:block lg:ml-35 lg:py-6  ">
+    <div className="container">
+      <p className=" text-2xl font-bold hidden sm:hidden md:block md:ml-4 md:py-4  lg:block lg:ml-35 lg:py-6  ">
         Hot Deals
       </p>
-      <div className="md:grid lg:grid-cols-2 md:grid-cols-2 gap-3 pl-4 w-full max-w-[1150px] mx-auto sm:hidden">
+      <div className="md:grid lg:grid-cols-2 md:grid-cols-2 gap-3  mb-4 pl-4 w-full  sm:hidden ">
         {images.map((image, index) => (
-          <div key={index}>
+          <div className="hover:opacity-75" key={index}>
             <Image src={image} alt="hotDealsImg"></Image>
           </div>
         ))}

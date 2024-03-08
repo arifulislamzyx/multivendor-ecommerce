@@ -23,6 +23,13 @@ import { Product } from "@/types/product";
 interface ProductProps {
   product: Product;
 }
+export const truncateText = (text: string, maxLength: number) => {
+  if (text.length <= maxLength) {
+    return text;
+  }
+
+  return `${text.slice(0, maxLength)}...`;
+};
 
 const ProductDisplay: React.FC<ProductProps> = ({ product }) => {
   const { _id, name, img, price, rating } = product
@@ -34,18 +41,14 @@ const ProductDisplay: React.FC<ProductProps> = ({ product }) => {
   const { cart, refetch } = UseCart();
   const [hovered, setHovered] = useState(false);
   const textMaxLength = 13;
-  const [addCartBtn, setAddCartBtn] = useState(false);
+  const [showAddToCart, setShowAddToCart] = useState(false);
 
-  const handleShowAddCartBtn = () => {
-    setAddCartBtn(!true);
+  const handleAddCartMouseEnter = () => {
+    setShowAddToCart(true);
   };
 
-  const truncateText = (text: string, maxLength: number) => {
-    if (text.length <= maxLength) {
-      return text;
-    }
-
-    return `${text.slice(0, maxLength)}...`;
+  const handleAddCartMouseLeave = () => {
+    setShowAddToCart(false);
   };
 
   const toggleHover = () => {
@@ -103,7 +106,12 @@ const ProductDisplay: React.FC<ProductProps> = ({ product }) => {
   };
   return (
     // className=" mt-5 rounded shadow-xl hover:scale-105 transition-all "
-    <Box className="max-w-[200px] items-center mt-5 rounded shadow-md hover:shadow-2xl hover:scale-105 transition-all">
+    <Box
+      onMouseEnter={handleAddCartMouseEnter}
+      onMouseLeave={handleAddCartMouseLeave}
+      className="max-w-[200px] items-center mt-5 rounded shadow-md hover:shadow-2xl hover:scale-105 transition-all"
+      style={{ position: "relative" }}
+    >
       <Card>
         <Box
           onMouseEnter={toggleHover}
@@ -152,23 +160,23 @@ const ProductDisplay: React.FC<ProductProps> = ({ product }) => {
           <Rating></Rating>
           <p className="ml-2">${price}</p>
         </CardContent>
-        {addCartBtn && (
-          <CardActions
-            onMouseEnter={handleShowAddCartBtn}
-            className="flex justify-center"
-          >
-            <Button
-              onClick={() => handleAddToCart(product)}
-              variant="outlined"
-              className=" rounded-2xl hover:bg-orange-500 hover:text-white "
-            >
-              <span className="transition duration-700 ease-in-out transform hover:scale-105">
-                Add To Cart
-              </span>
-            </Button>
-          </CardActions>
-        )}
       </Card>
+      {showAddToCart && (
+        <CardActions
+          style={{ position: "absolute", zIndex: 1 }}
+          className="flex justify-center -bottom-6 rounded-xl bg-white "
+        >
+          <Button
+            onClick={() => handleAddToCart(product)}
+            variant="outlined"
+            className="rounded-2xl hover:bg-orange-500 hover:text-white z-10"
+          >
+            <span className="w-[152px] transition duration-700 ease-in-out transform hover:scale-105">
+              Add To Cart
+            </span>
+          </Button>
+        </CardActions>
+      )}
     </Box>
   );
 };

@@ -17,6 +17,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
+import ProductDisplay from "../../../app/(home)/all-products/ProductDisplay";
 
 // import { Product } from "@/types/product";
 
@@ -64,14 +65,14 @@ export const NewProducts: React.FC = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white ">
       <p className="text-2xl font-bold lg:ml-35 md:ml-32 pt-5  sm:ml-2">
         Flash Sale
       </p>
       {loading ? (
         <>
           <div
-            className="bg-white grid grid-cols-2 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 rounded w-full max-w-[1150px] mx-auto relative 
+            className="bg-white grid grid-cols-2 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 rounded w-full container relative 
         md:w-[750px] sm:m-auto"
           >
             {Array.from({ length: 3 }).map((_, index) => (
@@ -88,7 +89,7 @@ export const NewProducts: React.FC = () => {
         <>
           <div
             className="bg-white rounded  max-w-[1050px] mx-auto  
-    md:w-[750px] md:h-200 sm:m-auto"
+                        md:w-[750px] md:h-200 sm:m-auto"
           >
             <Slider {...settings}>
               {products.slice(0, 12).map((product) => (

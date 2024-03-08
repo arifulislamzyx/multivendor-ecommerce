@@ -1,3 +1,4 @@
+import { Container } from '@mui/material';
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   important: true,
@@ -17,8 +18,21 @@ module.exports = {
       'xl': '1280px',
 
       '2xl': '1536px',
-      // => @media (min-width: 1536px) { ... }
     },
+
+    container:{
+      center:true,
+      padding:"2px",
+      screens: {
+        'sm': '450px',
+        'md': '768px',
+        'lg': '1150px',
+        'xl': '1400px',
+        '2xl': '1536px',
+        'custom': '1400px', 
+      },
+    },
+  
 
     extend: {
       backgroundImage: {

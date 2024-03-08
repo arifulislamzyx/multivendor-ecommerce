@@ -19,11 +19,11 @@ const Products: React.FC<ProductsProps> = () => {
 
   return (
     <div className="bg-white">
-      <p className="text-2xl font-bold pt-5 ml-32 lg:ml-35 md:ml-20 sm:ml-2">
+      <p className="text-2xl font-bold pt-5 ml-2 lg:ml-35 md:ml-20 sm:ml-2">
         Explore Now
       </p>
       {loading ? (
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 w-full max-w-[1150px] mx-auto mb-3">
+        <div className="container grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 w-full  mb-3">
           {Array.from({ length: 12 }).map((_, index) => (
             <Skeleton
               key={index}
@@ -35,9 +35,11 @@ const Products: React.FC<ProductsProps> = () => {
         </div>
       ) : (
         <>
+          {/* className="container grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5
+          lg:grid-cols-5 xl:grid-cols-4 md:items-center md:gap-4 " */}
           <div
-            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5
-          lg:grid-cols-5 xl:grid-cols-4 md:items-center md:gap-4 md:max-w-[900px] mx-auto "
+            className="container grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5
+          lg:grid-cols-5 xl:grid-cols-4 md:items-center md:gap-4 md:ml-24 "
           >
             {products
               .slice(0, showAll ? products.length : 12)

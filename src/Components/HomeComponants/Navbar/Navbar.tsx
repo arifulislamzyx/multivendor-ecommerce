@@ -16,6 +16,8 @@ import { CiSearch } from "react-icons/ci";
 import { IoPersonAddOutline } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
 import { AiTwotoneShopping } from "react-icons/ai";
+import ecommerceCategories from "@/data/categoryList";
+import { CiShoppingCart } from "react-icons/ci";
 
 const Navbar: React.FC = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -40,7 +42,7 @@ const Navbar: React.FC = () => {
     <nav className="bg-white">
       {user ? (
         <>
-          <div className="max-w-[1150px] mx-auto">
+          <div className="container">
             <div className="flex items-center justify-between px-4 ">
               <Link href="/">
                 <Image
@@ -60,7 +62,13 @@ const Navbar: React.FC = () => {
                 />
                 <div>
                   <button className="flex items-center p-1 border-x-blue">
-                    All Categories <IoIosArrowDown></IoIosArrowDown>
+                    <select>
+                      <option>
+                        All Categories <IoIosArrowDown></IoIosArrowDown>
+                      </option>
+                      <option>Fashion</option>
+                      <option>Gadgets</option>
+                    </select>
                   </button>
                 </div>
                 <button className="mr-4 text-xl">
@@ -70,7 +78,7 @@ const Navbar: React.FC = () => {
               <div className="relative flex items-center">
                 <FavoriteBorderIcon className=" mr-4 w-10 text-white"></FavoriteBorderIcon>
                 <Link href="/dashboard/addtocart">
-                  <AddShoppingCartIcon className=" mr-4 w-10 text-white  "></AddShoppingCartIcon>
+                  <AddShoppingCartIcon className=" mr-4 w-10 text-black  "></AddShoppingCartIcon>
                 </Link>
                 <div className="absolute badge badge-secondary text-black left-20 top-1">
                   +{cart?.length || 0}
@@ -101,7 +109,7 @@ const Navbar: React.FC = () => {
         </>
       ) : (
         <>
-          <div className="max-w-[1050px] mx-auto ">
+          <div className="container ">
             <div className="flex  justify-between items-center">
               <Link href="/">
                 <Image
@@ -121,7 +129,14 @@ const Navbar: React.FC = () => {
                 />
                 <div>
                   <button className="flex items-center p-1 border-x-blue">
-                    All Categories <IoIosArrowDown></IoIosArrowDown>
+                    <select>
+                      <option>
+                        All Categories <IoIosArrowDown></IoIosArrowDown>
+                      </option>
+                      {ecommerceCategories.map((category) => (
+                        <option key={category.id}> {category.category}</option>
+                      ))}
+                    </select>
                   </button>
                 </div>
                 <button className="mr-4 ml-3 text-xl ">

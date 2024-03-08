@@ -11,7 +11,7 @@ import { IoIosArrowDropright } from "react-icons/io";
 
 const OfferBaneer: React.FC = () => {
   return (
-    <section className="flex max-w-[1150px] mx-auto my-5">
+    <section className="flex container my-5">
       <div className="w-[400px] h-80 bg-yellow-300 z-10 ml-5 rounded">
         <div className="flex justify-end ">
           <Image

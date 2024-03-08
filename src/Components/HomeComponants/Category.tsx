@@ -32,21 +32,17 @@ export const Category: React.FC = () => {
 
   return (
     <div className="bg-white">
-      <p className="text-2xl font-bold pt-5 mb-4 lg:ml-35 md:ml-32 ml-2 ">
+      <p className="text-2xl font-bold pt-5 mb-4 lg:ml-30 md:ml-24 ml-2 ">
         Popular Categories
       </p>
-      <div className="hidden md:grid grid-cols-4 gap-4 max-w-[1150px] mx-auto bg-white md:rounded-full ">
+      <div className="hidden  items-center md:grid grid-cols-4 gap-4 container bg-white ">
         {categoriesImage.map((category) => (
-          <div
-            key={category.id}
-            className="p-5 rounded-full md:rounded-full items-center"
-          >
+          <div key={category.id} className="rounded-full p-5 items-center">
             <Image
               width={200}
-              height={100}
               src={category.image}
               alt="categories"
-              className="rounded-full hover:opacity-50"
+              className="rounded-2xl hover:opacity-50 box-border cursor-pointer"
             />
             <p className="text-center font-bold mt-3">{category.name}</p>
           </div>

@@ -1,12 +1,8 @@
-import {
-  CardElement,
-  useElements,
-  useStripe,
-} from "@stripe/react-stripe-js";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { AuthContext } from "@/Providers/AuthProviders";
-import useAxiosSecure from "../../../src/Hooks/useAxiosSecure";
+import useAxiosSecure from "../../../../src/Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
 interface CheckoutFormProps {

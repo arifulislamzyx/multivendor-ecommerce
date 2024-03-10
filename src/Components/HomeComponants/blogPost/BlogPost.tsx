@@ -26,7 +26,7 @@ const BlogPost: React.FC<BlogPostP> = () => {
     <div className="container">
       <h3 className="text-base font-bold my-4 md:text-2xl">BlogPost</h3>
       <div className="grid grid-cols-3">
-        {blogPost.slice(0, 3).map((posts) => (
+        {blogPost.slice(0, 3).map((posts: any) => (
           <div className="w-5/6" key={posts.id}>
             <Image
               src={posts?.image}

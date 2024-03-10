@@ -29,7 +29,7 @@ const Layout: React.FC<layoutProps> = ({ children }) => {
       </div>
 
       <div className="flex h-screen flex-col md:flex-row  md:overflow-hidden">
-        <div className={`w-full flex-none md:${openSideBar ? "w-64" : "w-24"}`}>
+        <div className={` flex-none md:${openSideBar ? "w-72" : "w-24"}`}>
           {openSideBar ? <Sidebar /> : <MinimizedSideBar></MinimizedSideBar>}
         </div>
         <div className="flex-grow p-6 md:overflow-y-auto md:p-12 w-full h-auto mt-5 mb-5">

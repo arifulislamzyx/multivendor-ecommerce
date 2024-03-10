@@ -27,18 +27,18 @@ import Swal from "sweetalert2";
 import { Product } from "@/types/product";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-interface SingleProductCaruselProps{
+interface SingleProductCaruselProps {
   products: Product[];
 }
 
-
-
-const SingleProductCarusel: React.FC<SingleProductCaruselProps> =({ products })=> {
+const SingleProductCarusel: React.FC = ({
+  products,
+}: SingleProductCaruselProps) => {
   const { _id, name, img, price, rating } = products[0] || {};
 
   // const navigate:AppRouterInstance = useRouter();
   const { user } = useContext(AuthContext);
-  const {cart, refetch} = UseCart();
+  const { cart, refetch } = UseCart();
   const textMaxLength = 10;
   const [hovered, setHovered] = useState(false);
 
@@ -46,7 +46,7 @@ const SingleProductCarusel: React.FC<SingleProductCaruselProps> =({ products })=
     setHovered(!hovered);
   };
 
-  const truncateText = (text:string, maxLength:number) => {
+  const truncateText = (text: string, maxLength: number) => {
     if (text.length <= maxLength) {
       return text;
     }
@@ -261,7 +261,6 @@ const SingleProductCarusel: React.FC<SingleProductCaruselProps> =({ products })=
     //   </Swiper>
     // </>
   );
-}
-
+};
 
 export default SingleProductCarusel;

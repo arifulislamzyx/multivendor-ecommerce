@@ -12,8 +12,6 @@ import { fadeIn } from "@/animation/varient";
 
 const SubNavbar: React.FC = () => {
   const { products } = useProducts();
-  console.log("subNav Data", products);
-
   const [hoverAllDept, setHoverAllDept] = useState(false);
   const [hoverSubAllDept, setHoverSubAllDept] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);

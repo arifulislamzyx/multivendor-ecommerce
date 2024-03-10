@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
           <Typography variant="inherit">
             <Link href={"/hoe-to-buy"}>How to Buy</Link>
           </Typography>
-          <Typography variant="bodinherity2">
+          <Typography variant="inherit">
             <Link href={"/refund-policy"}>Return and Refund</Link>
           </Typography>
         </Grid>

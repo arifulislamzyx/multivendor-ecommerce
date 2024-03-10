@@ -26,16 +26,15 @@ const metadata = {
   description: "A Multi-Vendor e-Commerce Platform ",
 };
 
-interface UserProps{
+interface UserProps {
   user: User;
 }
 
-const SignUp:React.FC<UserProps>= ()=> {
+const SignUp: React.FC = () => {
   const { createUser } = useContext(AuthContext);
   const navigate = useRouter();
 
-  const handleSignUp = async (
-    e: FormEvent<HTMLFormElement>) => {
+  const handleSignUp = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const form = e.target as HTMLFormElement;
@@ -46,7 +45,7 @@ const SignUp:React.FC<UserProps>= ()=> {
 
     await createUser(email, password)
       .then((result) => {
-        const createdUser:User = result.user;
+        const createdUser: User = result.user;
         console.log(createdUser);
 
         const saveUserToMongoDb = {
@@ -171,5 +170,5 @@ const SignUp:React.FC<UserProps>= ()=> {
       </Box>
     </Container>
   );
-}
+};
 export default SignUp;

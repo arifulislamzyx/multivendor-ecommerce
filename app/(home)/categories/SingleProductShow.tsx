@@ -15,7 +15,7 @@ import { Product } from "@/types/product";
 
 const textMaxLength = 13;
 
-const truncateText = (text:string, maxLength:number) => {
+const truncateText = (text: string, maxLength: number) => {
   if (text.length <= maxLength) {
     return text;
   }
@@ -23,17 +23,17 @@ const truncateText = (text:string, maxLength:number) => {
   return `${text.slice(0, maxLength)}...`;
 };
 
-interface ProductProps{
+interface ProductProps {
   product: Product;
 }
 const SingleProductShow: React.FC<ProductProps> = ({ product }) => {
-  const { _id, name, img, price, rating } = product ;
+  const { _id, name, img, price, rating } = product;
   // console.log(product);
-  const navigate = useRouter();
+  const router = useRouter();
   const { user } = useContext(AuthContext);
-  const {cart, refetch} = UseCart();
+  const { cart, refetch } = UseCart();
 
-  const handleAddToCart = (product:Product) => {
+  const handleAddToCart = (product: Product) => {
     if (user && user.email) {
       const cartItem = {
         productId: _id,
@@ -72,7 +72,7 @@ const SingleProductShow: React.FC<ProductProps> = ({ product }) => {
               confirmButtonText: "Login Now",
             }).then((result) => {
               if (result.isConfirmed) {
-                navigate("/login", { state: { from: location } });
+                router.push("/login");
               }
             });
           }

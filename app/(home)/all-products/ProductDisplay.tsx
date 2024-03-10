@@ -42,6 +42,7 @@ const ProductDisplay: React.FC<ProductProps> = ({ product }) => {
   const [hovered, setHovered] = useState(false);
   const textMaxLength = 13;
   const [showAddToCart, setShowAddToCart] = useState(false);
+  const router = useRouter();
 
   const handleAddCartMouseEnter = () => {
     setShowAddToCart(true);
@@ -99,7 +100,7 @@ const ProductDisplay: React.FC<ProductProps> = ({ product }) => {
         confirmButtonText: "Login Now",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/login", { state: { from: location } });
+          router.push("login");
         }
       });
     }

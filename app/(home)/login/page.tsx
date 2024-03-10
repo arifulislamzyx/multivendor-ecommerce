@@ -12,7 +12,6 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { FormEvent, useContext } from "react";
 import { AuthContext } from "@/Providers/AuthProviders";
 import Swal from "sweetalert2";
@@ -25,16 +24,11 @@ const metadata = {
   description: "A Multi-Vendor e-Commerce Platform ",
 };
 
-interface UserProps{
-  user: User;
-  
+interface UserProps {
+  user: User[];
 }
 
-// interface token{
-//   toke: string
-// }
-
-const SignIn:React.FC<UserProps>=()=> {
+const SignIn: React.FC = () => {
   const { signIn } = useContext(AuthContext);
   const navigate = useRouter();
 
@@ -42,15 +36,15 @@ const SignIn:React.FC<UserProps>=()=> {
     e.preventDefault();
 
     const form = e.target as HTMLFormElement;
-    const email = form.email.value;
-    const password = form.password.value;
+    const email: any = form.email.value;
+    const password: any = form.password.value;
 
     console.log(email, password);
 
     await signIn(email, password)
       .then((result) => {
         console.log(result);
-        const loggedInUser = result?.email;
+        const loggedInUser = result?.user?.email;
         console.log(loggedInUser);
         Swal.fire({
           position: "top-end",
@@ -59,7 +53,7 @@ const SignIn:React.FC<UserProps>=()=> {
           showConfirmButton: false,
           timer: 1500,
         });
-        getCookies("token");
+        // getCookies({ token: "token" });
         navigate.push("/");
       })
       .catch((error) => {
@@ -141,5 +135,5 @@ const SignIn:React.FC<UserProps>=()=> {
       </Box>
     </Container>
   );
-}
-export default  SignIn;
+};
+export default SignIn;

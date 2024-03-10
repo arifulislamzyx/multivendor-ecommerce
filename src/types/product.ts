@@ -11,3 +11,7 @@ export interface Product {
   shipping: number;
   quantity: number;
 }
+
+export interface ApiResponse {
+  products: Product[]
+}

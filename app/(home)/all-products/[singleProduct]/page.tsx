@@ -4,22 +4,50 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import SingleProductCarusel from "@/Components/singleProductCarusel/SingleProductCarusel";
-import { Product } from "@/types/product";
+// import { Product } from "@/types/product";
 import UseCart from "@/Hooks/useCart";
 import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import { ApiResponse } from "@/types/product";
 
-const SingleProducts:React.FC<{params: {singleProduct: string}}> = ({ params }) => {
+interface Product {
+  _id?: string;
+  name?: string;
+  category?: string;
+  img?: string;
+  seller?: string;
+  price?: number;
+  stock?: number;
+  rating?: number;
+  ratingsCount?: number;
+  shipping?: number;
+  quantity?: number;
+}
+
+interface ProductProps {
+  products: Product[];
+}
+
+const SingleProducts: React.FC<{
+  params: { singleProduct: String };
+}> = ({ params }) => {
+  const [user, setUser] = useState<{ email: String | null }>(null);
   const { singleProduct } = params;
-  const [products, setProducts] = useState<Product[]>("fatching");
+  const [products, setProducts] = useState<Product[]>([]);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
+  const router: any = useRouter();
 
-  const {cart, refetch} =UseCart()
+  const { cart, refetch } = UseCart();
 
   useEffect(() => {
-    fetch(`https://mitnog-server.vercel.app/products/${singleProduct}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
+    axios
+      .get<Product[]>(
+        `https://mitnog-server.vercel.app/products/${singleProduct}`
+      )
+      .then((response) => {
+        const data: any = response.data;
+        setProducts(data.data);
 
         if (data && data.category) {
           fetchRelatedProduct(data.category);
@@ -28,7 +56,7 @@ const SingleProducts:React.FC<{params: {singleProduct: string}}> = ({ params }) 
       })
 
       .catch((err) => {
-        setProducts("faild");
+        setProducts([]);
         console.log("faild to product id fatching=>", err);
       });
   }, [singleProduct]);
@@ -44,13 +72,13 @@ const SingleProducts:React.FC<{params: {singleProduct: string}}> = ({ params }) 
       });
   };
 
-  const handleAddToCart = (product:Product) => {
+  const handleAddToCart = (product: Product) => {
     if (user && user.email) {
       const cartItem = {
         productId: product._id,
-        name,
-        img,
-        price,
+        name: product.name,
+        img: product.img,
+        price: product.price,
         email: user.email,
       };
 
@@ -84,7 +112,10 @@ const SingleProducts:React.FC<{params: {singleProduct: string}}> = ({ params }) 
               confirmButtonText: "Login Now",
             }).then((result) => {
               if (result.isConfirmed) {
-                navigate("/login", { state: { from: location } });
+                router.push({
+                  pathname: "login",
+                  query: { from: router.pathname },
+                });
               }
             });
           }
@@ -93,29 +124,30 @@ const SingleProducts:React.FC<{params: {singleProduct: string}}> = ({ params }) 
   };
 
   return (
-    <div className="p-10 ">
-      <div className="flex gap-5 sm:flex-wrap">
-        <div className="p-10 w-full md:w-1/2 lg:w-1/2 rounded-xl bg-white shadow-xl">
+    <div className="container mx-auto my-10 ">
+      <div className="flex gap-8">
+        <div className="">
           <Image
             width={500}
             height={450}
-            src={products.img}
-            alt={products.name}
+            src={products[0]?.img}
+            alt={products[0]?.name}
             className="hover:transform: scaleY(.9)"
           ></Image>
         </div>
 
-        <div className="w-full md:w-1/2 lg:w-1/2">
-          <h2 className="text-2xl mt-5">{products.name}</h2>
-          <h3 className="text-sm mt-10">Item: {products.category}</h3>
-          <p>
-            <span className="text-orange-500">Brand:</span> {products.seller}
+        <div className="bg-white shadow-xl w-1/2 p-6">
+          <h2 className="text-2xl mt-5">{products[0]?.name}</h2>
+          <h3 className="text-sm mt-10">Item: {products[0]?.category}</h3>
+          <p className="font-bold text-lg">
+            <span className="text-orange-500 text-base">Brand:</span>{" "}
+            {products[0]?.seller}
           </p>
           <p>
-            Ratings:<Rating></Rating>({products.ratingsCount})
+            Ratings:<Rating></Rating>({products[0]?.ratingsCount})
           </p>
-          <p>Stock: {products.stock}</p>
-          <h2 className="text-lg mt-8">Price: ${products.price}</h2>
+          <p>Stock: {products[0]?.stock}</p>
+          <h2 className="text-lg mt-8">Price: ${products[0]?.price}</h2>
           <div className="mt-5 mb-2">
             <p className="text-sm font-bold">Product Specification:</p>
             <ul>
@@ -141,7 +173,7 @@ const SingleProducts:React.FC<{params: {singleProduct: string}}> = ({ params }) 
             </CardActions>
             <CardActions className="flex justify-center">
               <Button
-                onClick={() => handleAddToCart(product)}
+                onClick={() => handleAddToCart(products[0])}
                 variant="outlined"
                 className="items-center rounded-2xl hover:bg-orange-500 hover:text-white "
               >
@@ -152,19 +184,21 @@ const SingleProducts:React.FC<{params: {singleProduct: string}}> = ({ params }) 
             </CardActions>
           </div>
         </div>
-        <p className="mt-5">Description: </p>
-        <p className="mt-2 text w-full md:w1/2 lg:1/2">
-          Introducing our {products.name}, crafted from premium [Fabric Type]
-          for a soft and luxurious feel. The [Design Element], whether elegant
-          embroidery or chic prints, adds sophistication to this piece. Its
-          flattering [Fit Description] ensures a comfortable yet stylish wear,
-          perfect for [Occasion or Use]. Elevate your wardrobe with this
+      </div>
+      <div>
+        <p className="mt-5 text-xl">Description: </p>
+        <p className="w-2/3 my-4">
+          Introducing our {products[0]?.name}, crafted from premium [Fabric
+          Type] for a soft and luxurious feel. The [Design Element], whether
+          elegant embroidery or chic prints, adds sophistication to this piece.
+          Its flattering [Fit Description] ensures a comfortable yet stylish
+          wear, perfect for [Occasion or Use]. Elevate your wardrobe with this
           versatile fashion staple
         </p>
       </div>
 
       <div className="mt-5 mb-10">
-        <SingleProductCarusel products={relatedProducts}></SingleProductCarusel>
+        {/* <SingleProductCarusel products={relatedProducts}></SingleProductCarusel> */}
       </div>
     </div>
   );

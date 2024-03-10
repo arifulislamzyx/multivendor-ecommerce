@@ -26,7 +26,7 @@ const DashboardSidebar: React.FC = () => {
           <li key={option.id} className="mb-2">
             <Link
               href={option.link}
-              className="block px-2 py-1 rounded-md hover:bg-orange-600"
+              className="block text-xl font-medium px-2 py-3 rounded-md hover:bg-orange-600"
             >
               {option.title}
             </Link>

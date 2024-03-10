@@ -91,6 +91,7 @@ const Navbar: React.FC = () => {
                     onClick={handleMenue}
                     alt="Remy Sharp"
                     src="/static/images/avatar/2.jpg"
+                    className="cursor-pointer"
                   />
                   {showSettings && (
                     <div className="bg-white p-2 rounded-lg absolute grid top-16 right-0 ml-2 sm:z-10">

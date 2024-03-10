@@ -19,11 +19,11 @@ export default function Home(): ReactElement {
       <Category />
       <NewProducts />
       <OfferBaneer />
-      <Products />
+      <Products products={undefined} />
       <HotDeals />
       <Partner />
-      <BigSale />
-      <BlogPost />
+      <BigSale product={undefined} />
+      <BlogPost blogpost={[]} />
     </div>
   );
 }

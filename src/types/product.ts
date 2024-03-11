@@ -13,5 +13,7 @@ export interface Product {
 }
 
 export interface ApiResponse {
+  category: ApiResponse;
+  data(data: any): unknown;
   products: Product[]
 }

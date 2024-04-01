@@ -25,7 +25,7 @@ const Slider: React.FC<sliderProps> = ({ items }) => {
   };
   return (
     <>
-      <div className="max-w-[1150px] rounded w-full mx-auto ">
+      <div>
         <SlideR {...settings}>
           {mainSlider.map((sliderImg) => (
             <div key={sliderImg.id}>
@@ -34,6 +34,7 @@ const Slider: React.FC<sliderProps> = ({ items }) => {
                 alt="slider_image"
                 width={1920}
                 height={835}
+                className="rounded"
               ></Image>
             </div>
           ))}

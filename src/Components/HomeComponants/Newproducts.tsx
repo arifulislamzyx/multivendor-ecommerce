@@ -66,9 +66,7 @@ export const NewProducts: React.FC = () => {
 
   return (
     <div className="bg-white ">
-      <p className="text-2xl font-bold lg:ml-35 md:ml-32 pt-5  sm:ml-2">
-        Flash Sale
-      </p>
+      <p className="text-2xl font-bold mt-4">Flash Sale</p>
       {loading ? (
         <>
           <div

@@ -13,7 +13,7 @@ const BigSale: React.FC<ProductProps> = () => {
   console.log("bigsale Product", products);
 
   return (
-    <div className="bg-blue-700">
+    <div className="bg-blue-700 rounded">
       <section className="container grid md:flex py-8">
         <div className="w-1/2 ">
           <div className="w-80 text-white md:ml-40 my-5 gap-5">

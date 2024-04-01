@@ -41,7 +41,7 @@ const SubNavbar: React.FC = () => {
   };
 
   return (
-    <section className="hidden container bg-blue-700 rounded-lg md:flex items-center">
+    <section className="hidden bg-blue-700 rounded-lg md:flex items-center">
       <div className="relative flex font-bold  text-white text-center items-center gap-2 p-4 ">
         <div className="font-extrabold text-2xl ">
           <RxHamburgerMenu></RxHamburgerMenu>

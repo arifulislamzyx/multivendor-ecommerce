@@ -7,7 +7,7 @@ import { FaArrowDown } from "react-icons/fa";
 
 const NavHelmet: React.FC = () => {
   return (
-    <div className="container flex justify-between mt-4">
+    <div className="flex justify-between mt-4">
       <div>
         <h4 className="font-bold">FREE Express Shipping On Orders $99+</h4>
       </div>

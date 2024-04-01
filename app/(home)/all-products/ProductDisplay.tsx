@@ -110,7 +110,7 @@ const ProductDisplay: React.FC<ProductProps> = ({ product }) => {
     <Box
       onMouseEnter={handleAddCartMouseEnter}
       onMouseLeave={handleAddCartMouseLeave}
-      className="max-w-[200px] items-center mt-5 rounded shadow-md hover:shadow-2xl hover:scale-105 transition-all"
+      className="max-w-[200px] items-center mt-5 rounded shadow-md hover:shadow-2xl hover:scale-105 transition-all hover:z-10"
       style={{ position: "relative" }}
     >
       <Card>

@@ -7,7 +7,7 @@ import Link from "next/link";
 const Footer: React.FC = () => {
   return (
     <Box className="bg-orange-400 p-5 text-center">
-      <Grid container className="container">
+      <Grid>
         <Grid
           item
           xs={12}

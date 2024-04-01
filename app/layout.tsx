@@ -3,8 +3,8 @@ import "./globals.css";
 import localFont from "next/font/local";
 import { ReactQueryProvider } from "./ReactQueryProvider";
 import { AuthProvider } from "@/Providers/AuthProviders";
-import Footer from "../src/Components/HomeComponants/Footer";
-import Navbar from "../src/Components/HomeComponants/Navbar/Navbar";
+import Footer from "../src/Components/layouts/Footer";
+import Navbar from "../src/Components/layouts/Navbar/Navbar";
 import { ReactNode } from "react";
 
 const sf_pro = localFont({ src: "./sf-pro.woff2" });
@@ -25,7 +25,7 @@ const RootLayout: React.FC<Layoutprops> = ({ children }) => {
         <ReactQueryProvider>
           <AuthProvider>
             {/* <Navbar /> */}
-            {children}
+            <div className="container mx-auto">{children}</div>
             <Footer />
           </AuthProvider>
         </ReactQueryProvider>

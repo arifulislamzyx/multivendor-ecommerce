@@ -13,7 +13,7 @@ const Layout: React.FC<layoutProps> = ({ children }) => {
   const [openSideBar, setOpenSideBar] = useState(true);
 
   return (
-    <div>
+    <div className="container mx-auto">
       <div className="flex ml-10">
         <button
           onClick={() => setOpenSideBar((openSideBar) => !openSideBar)}

@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
     <nav className="bg-white">
       {user ? (
         <>
-          <div className="container">
+          <div>
             <div className="flex items-center justify-between px-4 ">
               <Link href="/">
                 <Image
@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
         </>
       ) : (
         <>
-          <div className="container ">
+          <div>
             <div className="flex  justify-between items-center">
               <Link href="/">
                 <Image

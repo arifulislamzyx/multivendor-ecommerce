@@ -1,5 +1,10 @@
 import React, { ReactNode } from "react";
-import CentralNav from "@/Components/HomeComponants/Navbar/CentralNav";
+import CentralNav from "@/Components/layouts/Navbar/CentralNav";
+
+const metadata = {
+  title: "Mitnog- Largest Online Shopping Mall",
+  description: "A Multi-Vendor e-Commerce Platform ",
+};
 
 interface HomeLayout {
   children: ReactNode;
@@ -7,7 +12,7 @@ interface HomeLayout {
 
 const layout: React.FC<HomeLayout> = ({ children }) => {
   return (
-    <div>
+    <div className="container mx-auto">
       <CentralNav />
       {children}
     </div>
